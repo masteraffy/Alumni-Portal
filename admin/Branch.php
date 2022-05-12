@@ -20,14 +20,14 @@ include "../dbconfig.php";
             <div class="modal-body">
                 <div class="row">
                     <div class="form-group col-12">
-                        <label>Branch Name:</label>
-                        <input type ="text"  name="Name" class="form-control" placeholder="Enter Branch Name">
+                        <label class="form-label">Branch Name:</label>
+                        <input type ="text"  name="Name" class="form-control" id="validateBranchName" placeholder="Enter Branch Name" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Branch Address:</label>
-                        <input type ="text" name="address"   class="form-control" placeholder="Enter Branch Address">
+                        <input type ="text" name="address"   class="form-control" placeholder="Enter Branch Address" required>
                     </div>
                 </div>
             </div>
@@ -57,13 +57,13 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Branch Name:</label>
-                        <input type ="text" name="Name" id="Name" class="form-control" placeholder="Enter Branch Name">
+                        <input type ="text" name="Name" id="Name" class="form-control" placeholder="Enter Branch Name" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Branch Address:</label>
-                        <input type ="text" name="address" id="address" class="form-control" placeholder="Enter Branch Address">
+                        <input type ="text" name="address" id="address" class="form-control" placeholder="Enter Branch Address" required>
                     </div>
                 </div>
             </div>

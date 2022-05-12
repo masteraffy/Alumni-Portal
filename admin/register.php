@@ -35,17 +35,17 @@ include "../dbconfig.php";
                         
                         <div class="col-4">
                             <label>First Name:</label>
-                            <input type ="text" name="firstname" class="form-control" placeholder="Enter First">
+                            <input type ="text" name="firstname" class="form-control" placeholder="Enter First" required>
                         </div>
                             
                         <div class="col-4">
                             <label>Middle Name:</label>
-                            <input type ="text" name="middlename" class="form-control" placeholder="Enter Middle">
+                            <input type ="text" name="middlename" class="form-control" placeholder="Enter Middle" required>
                         </div>
                         <div class="col-4">
 
                             <label>Last Name:</label>
-                            <input type ="text" name="lastname" class="form-control" placeholder="Enter Last">
+                            <input type ="text" name="lastname" class="form-control" placeholder="Enter Last" required>
                         </div>
                     </div>
                 </div>
@@ -54,7 +54,7 @@ include "../dbconfig.php";
                         
                     <div class="form-group col-6">
                         <label>Email:</label>
-                        <input type ="email" name="email" class="form-control" placeholder="Enter Email">
+                        <input type ="email" name="email" class="form-control" placeholder="Enter Email" required>
                     </div>
 
                     <div class="form-group col-6">

@@ -177,7 +177,7 @@ include "../dbconfig.php";
         <?php
             $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
 
-            $query = "SELECT * FROM events left join staff on events.CreatedUser = staff.Id where TypeOfContent !='Jobs' AND userData ='Administrator' OR userData ='Employee'";
+            $query = "SELECT * FROM events left join staff on events.CreatedUser = staff.Id where TypeOfContent !='Jobs'";
             $query_run = mysqli_query($connection, $query);
         ?>
 
@@ -190,7 +190,7 @@ include "../dbconfig.php";
                     <th>Description</th>
                     <th>Posted By</th>
                     <th>Date and Time</th>
-                    <th>ACTIONS</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>

@@ -50,7 +50,7 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Course Abbv:</label>                          
-                        <input type ="address"  name="address" class="form-control" placeholder="Ex: BSIT">     
+                        <input type ="address" required name="address" class="form-control" placeholder="Ex: BSIT">     
 
 
                     </div>
@@ -108,7 +108,7 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Course Abbv:</label>                          
-                        <input type ="text" id="abvC" name="address" class="form-control" placeholder="Ex: BSIT">  
+                        <input type ="text" id="abvC" required name="address" class="form-control" placeholder="Ex: BSIT">  
                        
                     </div>
                 </div>

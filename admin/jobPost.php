@@ -90,7 +90,7 @@ include "../dbconfig.php";
                                     
                     <div class="form-group col-6">
                         <label>Course:</label>
-                        <select name="course" class="form-control">
+                        <select name="course" class="form-control" required>
                             <option value="">Select</option>
                             <?php
                                 $query = "SELECT * FROM course";

@@ -196,7 +196,7 @@ include "../dbconfig.php";
 
                                     class="btn btn-success edit_btn"  data-toggle="modal" data-target="#updateadminprofile"> <i class="fas fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#confirmModal" data-id="<?php echo $row['id']; ?>">
-                                    <i class="far fa-trash-alt"></i>
+                                    <i class="far fa-trash-alt"> </i>
                                     </button>
                                     <!-- Modal -->
                                     <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
@@ -214,8 +214,7 @@ include "../dbconfig.php";
 
                                             <form action="code.php" method="POST">
                                                 <input type="hidden"  id="delete_id" name="delete_id" value="<?php echo $row['id']; ?>">
-                                                <button type="submit" name="deleteDepartment" class="btn btn-danger"> Yes</button>
-                                            </form>
+                                                <button type="submit" name="deleteDepartment" class="btn btn-danger">Yes</button>
                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                         </form>
                                         </div>

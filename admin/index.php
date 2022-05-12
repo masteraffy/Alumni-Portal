@@ -24,14 +24,14 @@ include('../includes/navbar.php');
                     <!-- Content Row -->
                     <div class="row">
 
-                        <!-- Total Number Of Employee -->
+
                         <div class="col-xl-4 col-md-6 mb-4"  style="<?php echo "display:".$display ?>">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Number Of Alumni
+                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                                               <u> <a href="alumni.php" class="link-primary"> Total Number Of Alumni </a></u> 
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
@@ -55,20 +55,19 @@ include('../includes/navbar.php');
                             </div>
                         </div>
 
-                        <!-- Total Number Of Admin -->
                         <div class="col-xl-4 col-md-6 mb-4"  style="<?php echo "display:".$display ?>">
                             <div class="card border-left-primary shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Number Of Admin
+                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                                            <u> <a href="register.php" class="link-primary"> Total Number Of Admin </a></u> 
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
                                                     require '../dbconfig.php';
 
-                                                    $query = "SELECT * FROM admin";
+                                                    $query = "SELECT * FROM staff where userData ='Administrator'";
                                                     $query_run = mysqli_query($connection, $query);
 
                                                     $row = mysqli_num_rows($query_run);
@@ -85,20 +84,20 @@ include('../includes/navbar.php');
                                 </div>
                             </div>
                         </div>
-                        <!-- Total Number Of Alumni -->
+   
                         <div class="col-xl-4 col-md-6 mb-4"  style="<?php echo "display:".$display ?>">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                                Total Number Of Employee
+                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                                            <u> <a href="employee.php" class="link-primary"> Total Number Of Employee </a></u> 
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
                                                     require '../dbconfig.php';
 
-                                                    $query = "SELECT * FROM staff";
+                                                    $query = "SELECT * FROM staff where userData ='Employee'";
                                                     $query_run = mysqli_query($connection, $query);
 
                                                     $row = mysqli_num_rows($query_run);
@@ -121,16 +120,15 @@ include('../includes/navbar.php');
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Total Numbers of Admin Content Posted (Announcements / Updates)
+                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                                            <u> <a href="announcement.php" class="link-primary"> Total Content Posted </a></u> 
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
                                                     require '../dbconfig.php';
 
                                                     $query = "SELECT * FROM events
-                                                             WHERE TypeOfContent !='Jobs' 
-                                                             AND UserType = 'Administrator' ";
+                                                             WHERE TypeOfContent !='Jobs'";
                                                     $query_run = mysqli_query($connection, $query);
 
                                                     $row = mysqli_num_rows($query_run);
@@ -147,22 +145,21 @@ include('../includes/navbar.php');
                                 </div>
                             </div>
                         </div>
-                        <!-- Total Numbers of Admin Content Posted (Announcements / Updates) -->
+
                         <div class="col-xl-6 col-md-6 mb-4"  style="<?php echo "display:".$display ?>">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Total Numbers of Admin Content Posted (Announcements / Updates)
+                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                                            <u> <a href="jobPost.php" class="link-primary"> Total Number of Job Posted</a></u> 
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
                                                     require '../dbconfig.php';
 
                                                     $query = "SELECT * FROM events
-                                                             WHERE TypeOfContent ='Jobs' 
-                                                             AND UserType = 'Administrator' ";
+                                                             WHERE TypeOfContent ='Jobs'";
                                                     $query_run = mysqli_query($connection, $query);
 
                                                     $row = mysqli_num_rows($query_run);
@@ -179,54 +176,21 @@ include('../includes/navbar.php');
                                 </div>
                             </div>
                         </div>
-                        <!-- Total Numbers of Employee Content Posted (Announcements / Updates) -->
+
                         <div class="col-xl-6 col-md-6 mb-4"  style="<?php echo "display:".$display ?>">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Total Numbers of Employee Content Posted (Announcements / Updates)
+                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                                            <u><a href="approve.php" class="link-primary"> Pending Posts of Alumni </a></u>
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
                                                     require '../dbconfig.php';
 
                                                     $query = "SELECT * FROM events
-                                                             WHERE TypeOfContent !='Jobs' 
-                                                             AND UserType = 'Employee' ";
-                                                    $query_run = mysqli_query($connection, $query);
-
-                                                    $row = mysqli_num_rows($query_run);
-                                                    echo '<h1>' .$row. '</h1>';
-
-                                                ?>
-                                                
-                                            </div>
-                                        </div>
-                                        <div class="col-auto">
-                                            <img width="32px" src="https://img.icons8.com/external-sbts2018-blue-sbts2018/344/external-comment-social-media-basic-1-sbts2018-blue-sbts2018.png"/>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <!-- Total Numbers of Employee Job Posted -->
-                        <div class="col-xl-6 col-md-6 mb-4"  style="<?php echo "display:".$display ?>">
-                            <div class="card border-left-success shadow h-100 py-2">
-                                <div class="card-body">
-                                    <div class="row no-gutters align-items-center">
-                                        <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Total Numbers of Employee Job Posted
-                                            </div>
-                                            <div class="h5 mb-0 font-weight-bold text-gray-800">
-                                                <?php
-                                                    require '../dbconfig.php';
-
-                                                    $query = "SELECT * FROM events
-                                                             WHERE TypeOfContent ='Jobs' 
-                                                             AND UserType = 'Employee' ";
+                                                             WHERE AllowPost ='Pending'";
                                                     $query_run = mysqli_query($connection, $query);
 
                                                     $row = mysqli_num_rows($query_run);
@@ -243,22 +207,21 @@ include('../includes/navbar.php');
                                 </div>
                             </div>
                         </div>
-                        <!-- Total Numbers of User (Alumni) Content Posted -->
-                        <div class="col-xl-12 col-md-12 mb-4"  style="<?php echo "display:".$display ?>">
+
+                        <div class="col-xl-6 col-md-6 mb-4"  style="<?php echo "display:".$display ?>">
                             <div class="card border-left-success shadow h-100 py-2">
                                 <div class="card-body">
                                     <div class="row no-gutters align-items-center">
                                         <div class="col mr-2">
-                                            <div class="text-xs font-weight-bold text-primary text-uppercase mb-1">
-                                            Total Numbers of User (Alumni) Content Posted
+                                            <div class="text-sm font-weight-bold text-primary text-uppercase mb-1">
+                                            Total Numbers of Job Posted!
                                             </div>
                                             <div class="h5 mb-0 font-weight-bold text-gray-800">
                                                 <?php
                                                     require '../dbconfig.php';
 
                                                     $query = "SELECT * FROM events
-                                                             WHERE TypeOfContent !='Jobs' 
-                                                             AND UserType = 'Alumni' ";
+                                                             WHERE TypeOfContent ='Jobs'";
                                                     $query_run = mysqli_query($connection, $query);
 
                                                     $row = mysqli_num_rows($query_run);
@@ -269,7 +232,7 @@ include('../includes/navbar.php');
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <img width="32px" src="https://img.icons8.com/external-sbts2018-blue-sbts2018/344/external-comment-social-media-basic-1-sbts2018-blue-sbts2018.png"/>
+                                            <img width="32px" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-job-recruitment-agency-flaticons-lineal-color-flat-icons-2.png"/>
                                         </div>
                                     </div>
                                 </div>
