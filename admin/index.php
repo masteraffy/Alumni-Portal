@@ -48,7 +48,7 @@ include('../includes/navbar.php');
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <img src="https://img.icons8.com/ios-glyphs/30/000000/men-age-group-5.png"/>
+                                        <i class="fa-solid fa-graduation-cap fa-2xl"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -78,7 +78,7 @@ include('../includes/navbar.php');
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <img src="https://img.icons8.com/ios-glyphs/30/000000/men-age-group-5.png"/>
+                                            <i class="fa-solid fa-user-tie fa-2xl"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -108,7 +108,7 @@ include('../includes/navbar.php');
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <img src="https://img.icons8.com/ios-filled/50/000000/graduation-cap.png"/>
+                                            <i class="fa-solid fa-users fa-2xl"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -128,7 +128,7 @@ include('../includes/navbar.php');
                                                     require '../dbconfig.php';
 
                                                     $query = "SELECT * FROM events
-                                                             WHERE TypeOfContent !='Jobs'";
+                                                             WHERE TypeOfContent !='Jobs' AND AllowPost = 'Approved'";
                                                     $query_run = mysqli_query($connection, $query);
 
                                                     $row = mysqli_num_rows($query_run);
@@ -170,7 +170,7 @@ include('../includes/navbar.php');
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <img width="32px" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-job-recruitment-agency-flaticons-lineal-color-flat-icons-2.png"/>
+                                            <i class="fa-solid fa-briefcase fa-2xl"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -201,7 +201,7 @@ include('../includes/navbar.php');
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <img width="32px" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-job-recruitment-agency-flaticons-lineal-color-flat-icons-2.png"/>
+                                            <i class="fa-solid fa-clock fa-2xl"></i>
                                         </div>
                                     </div>
                                 </div>
@@ -232,7 +232,7 @@ include('../includes/navbar.php');
                                             </div>
                                         </div>
                                         <div class="col-auto">
-                                            <img width="32px" src="https://img.icons8.com/external-flaticons-lineal-color-flat-icons/344/external-job-recruitment-agency-flaticons-lineal-color-flat-icons-2.png"/>
+                                            
                                         </div>
                                     </div>
                                 </div>

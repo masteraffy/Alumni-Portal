@@ -20,6 +20,7 @@
             $_SESSION['lastname'] = $user['lastname'];
             $_SESSION['user'] = $user;
             $_SESSION['id'] = $user['id'];
+            $_SESSION['Full_Name'] = $user['firstname']. " ".$user['middleName']. " ".$user['lastname'];
             header('Location: home.php');
         }
         else

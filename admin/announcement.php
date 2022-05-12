@@ -177,7 +177,7 @@ include "../dbconfig.php";
         <?php
             $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
 
-            $query = "SELECT * FROM events left join staff on events.CreatedUser = staff.Id where TypeOfContent !='Jobs'";
+            $query = "SELECT * FROM events left join staff on events.CreatedUser = staff.Id where TypeOfContent !='Jobs' AND AllowPost ='Approved'";
             $query_run = mysqli_query($connection, $query);
         ?>
 
@@ -205,7 +205,7 @@ include "../dbconfig.php";
                                 <td> <?php echo $row['Title']; ?> </td>
                                 <td> <?php echo $row['Subtitle']; ?> </td>
                                 <td> <?php echo $row['Description']; ?> </td>
-                                <td> <?php echo $row['FirstName']." ".$row['MiddleName']." ".$row['LastName']; ?> </td>
+                                <td> <?php echo $row['CreatedUser']; ?> </td>
                                 <td> <?php echo $row['CreatedDate']; ?> </td>
                                 <td>
                                 

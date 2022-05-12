@@ -1035,7 +1035,7 @@ if(isset($_POST['contentsInsert'])){
     $Title=$_POST['Title'];
     $Subtitle=$_POST['Subtitle'];
     $Description=$_POST['Description'];
-    $user=$_POST['user'];
+    $user=$_SESSION['Full_Name'];
     $userData=$_POST['userData'];
     $file=$_POST['file'];
     $date = date('Ymd');

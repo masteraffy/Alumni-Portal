@@ -60,7 +60,7 @@ include "../dbconfig.php";
                                 <td> <?php echo $row['Title']; ?> </td>
                                 <td> <?php echo $row['Subtitle']; ?> </td>
                                 <td> <?php echo $row['Description']; ?> </td>
-                                <td> <?php echo $row['firstname']." ".$row['middleName']." ".$row['lastname']; ?> </td>
+                                <td> <?php echo $row['CreatedUser']; ?> </td>
                                 <td> <?php echo $row['CreatedDate']; ?> </td>
                                 <td> <?php echo $row['AllowPost']; ?> </td>
                                 

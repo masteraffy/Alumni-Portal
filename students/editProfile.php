@@ -168,7 +168,7 @@
                         <input name="id" type="hidden" value=<?php echo $user['userID'] ?> />
                         <div class="row">
                             <div class=" col-12 p-0" style="display:block">
-                                <img width="250" height="250" src=<?php 
+                                <img width="250" height="250" alt="Image not Found" src=<?php 
                                     if($user['photo']){
                                      echo $user['photo'];
                                     }

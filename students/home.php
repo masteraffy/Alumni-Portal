@@ -344,10 +344,10 @@
             <input type="hidden" name="id" placeholder="Title" value="<?php echo $user['userID'];?>" >
         </div>
         <div class="col-lg-12">
-            <input type="text" name="title" placeholder="Title">
+            <input type="text" name="title" placeholder="Title" required>
         </div>
         <div class="col-lg-12">
-            <input type="text" name="Subtitle" placeholder="Subtitle">
+            <input type="text" name="Subtitle" placeholder="Subtitle" required>
         </div>
         <div class="col-lg-12">
             <textarea name="description" placeholder="Description"></textarea>
@@ -355,7 +355,7 @@
         <div class="col-lg-12">
             <label>Image :</label>    
             <br/>             
-            <input type="file" name="file" />
+            <input type="file" name="file"/>
 
         </div>
         <div class="col-lg-12">
