@@ -1,0 +1,7 @@
+alumni_id,student_number,first_name,middle_name,last_name,email,Phone,address,studDate,studStatus,studDes,studOR
+2014-1,2014-12-student,John, ,test,sephriverajr@gmail.com,123-456-7890,address1,student Date test, single, designation, or 
+2014-2,2014-2-student,Gary, ,test,gary@hotmail.com,434-506-6483,address2,student2 Date test, single, designation, or 
+2014-3,2014-3-student,Edward,test, Siu,siu.edward@gmail.com,986-438-0040,address3,student3 Date test, single, designation, or 
+2014-4,2014-4-student,Betty , , Simons,simons@example.com,439-405-2345,address4,student4 Date test, single, designation, or 
+2014-5,2014-5-student,Frances, , Lieberman,lieberman@gmail.com,765-980-0543,address5,student5 Date test, single, designation, or 
+2014-6,2014-6-student,Jason, , Gregson,jason@example.com,567-859-0485,address6,student6 Date test, single, designation, or 
