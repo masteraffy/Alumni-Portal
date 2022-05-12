@@ -252,11 +252,11 @@ else{
                                 }
                             ?>
                         <label>Current Password:</label> <input type ="hidden"  name="id"  value=<?php  echo $user['Id']; ?> class="form-control" placeholder="Enter Current Password">
-                        <input type ="password"  name="currentpw" class="form-control" placeholder="Enter Current Name">
+                        <input type ="password"  name="currentpw" class="form-control" placeholder="Enter Current Name" required>
                         <label>New Password:</label>
-                        <input type ="password"  name="newpw" id="newpw" class="form-control" placeholder="Enter New Password">
+                        <input type ="password"  name="newpw" id="newpw" class="form-control" placeholder="Enter New Password" required>
                         <label>Confirm Password:</label>
-                        <input type ="password"  name="confrimpw" id="confrimpw" class="form-control" placeholder="Enter Confirm password">
+                        <input type ="password"  name="confrimpw" id="confrimpw" class="form-control" placeholder="Enter Confirm password" required>
                     </div>
                 </div>
                 <div id="errorChange">

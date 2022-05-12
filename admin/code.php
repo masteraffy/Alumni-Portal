@@ -977,7 +977,8 @@ if(isset($_POST['deleteCourse'])){
 }
 
 if(isset($_POST['changepass'])){
-    $id= $_POST['id'];
+    $id = $_SESSION['UserId'];
+    $usertype = $_SESSION['Usertype'];
     $currentpw= $_POST['currentpw'];
     $newpw= $_POST['newpw'];
     $confrimpw= $_POST['confrimpw'];
@@ -998,7 +999,15 @@ if(isset($_POST['changepass'])){
         {
             $_SESSION['success'] = "Successfully Updated";
 
-            echo '<script>window.location.replace("/alumni/admin/index.php?Updated");</script>';
+            if($usertype == "Administrator")
+            {
+                echo '<script>window.location.replace("/alumni/admin/index.php?Updated");</script>' .$usertype;
+            }
+            else
+            {
+                echo '<script>window.location.replace("/alumni/admin/employeeIndex.php?Updated");</script>';
+            }
+            
         }
         }
        
@@ -1006,13 +1015,18 @@ if(isset($_POST['changepass'])){
     else
     {
         $_SESSION['error'] = 'Incorrect Current password';
-        echo '<script>window.location.replace("/alumni/admin/index.php?Changepass");</script>';
+        if($usertype == "Administrator")
+        {
+            echo '<script>window.location.replace("/alumni/admin/index.php?Changepass");</script>';
+        }
+        else{
+            echo '<script>window.location.replace("/alumni/admin/employeeIndex.php?Updated");</script>';
+        }
+        
         
         
     }
 }
-
-
 
 if(isset($_POST['contentsInsert'])){
     

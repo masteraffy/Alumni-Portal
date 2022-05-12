@@ -294,7 +294,7 @@ include "../dbconfig.php";
                     <th>Location</th>
                     <th>Posted By</th>
                     <th>Date and Time</th>
-                    <th>ACTIONS</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>

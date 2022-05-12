@@ -14,6 +14,7 @@
         if(password_verify($password_login, $result['Password'])){
             $_SESSION['username'] = $email_login;
             $_SESSION['UserId'] = $result['Id'];
+            $_SESSION['Usertype'] = $result['userData'];
             if($result['userData'] == "Administrator"){
                 
             $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Logged In',now(),'Login')";
