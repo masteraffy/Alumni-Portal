@@ -103,7 +103,7 @@
 	    $sql = $sqlUpdate;
 		$result = mysqli_query($connection, $sql);
         if ($result > 0){
-            header("Location: editProfile.php?success=Profile updated successfully!");
+            header("Location: posts.php?success=Profile updated successfully!");
         }
     }
     

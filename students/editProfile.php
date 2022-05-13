@@ -137,7 +137,7 @@
 
 <div class="container">
     <div class="main-ws-sec">
-        <div class="card mt-2 p-2">
+        <div class="card mt-2 p-5">
             
             <h2>Update / Edit Profile</h2>
             <div class="container">
@@ -153,7 +153,7 @@
                     </ul>
                 </div>
             </div>
-            <div class="row d-block p-5">
+            <div class="row d-block p-3">
             <form action="edit_function.php" method="POST" enctype="multipart/form-data">
                     <?php if (isset($_GET['error'])) 
                     { ?>
@@ -176,143 +176,141 @@
                                         echo "profilePic/userPic.jpg";
                                     }
                                 ?> />
-                                <label>Change Profile Picture </label>
-                                <br/>
-                                <input type="hidden" id="fetch" name="fetch" value="<?php echo $user['photo']?>" />
+                                <label for="exampleFormControlFile1" class="ml-3">Change Profile Picture </label>
+                                <br>
+                                &nbsp  &nbsp<input type="hidden" class="form-control-file" id="fetch exampleFormControlFile1" name="fetch" value="<?php echo $user['photo']?>" />
 
                                 <input type="file" id="file" name="file" />
                             </div>
                         </div>
-                        <br/>
-                        <h5>Bio</h5>
-                        <div class="form-input col-12 p-0" style="display:inline-block">
-                            <label>Add Bio</label>
-                            <input type="text" name="bio" value="<?php echo $user['bio']?>" tabindex="10" >
+                        <hr style="color:solid-black">
+                        <div class="row mt-3">
+                            <div class="h2">Basic Information</div>
                         </div>
-                        <br/>
-                        <h5>Basic Info</h5>
-                        <div class="form-input col-4 p-0" style="display:inline-block">
-                            <label>First Name</label>
-                            <input type="text" name="firstname" value="<?php echo $user['firstname']?>" placeholder="Jose" tabindex="10" required>
-                        </div>
+                            <div class="form-group">
+                                <div class="row-md-12">
+                                    <div>
+                                        <div class="col-md-12">
+                                        <label for="validationCustom01 class="ml-2">Bio</label>
+                                        <input type="text" class="form-control" name="bio" value="<?php echo $user['bio']?>" tabindex="1" id="validationCustom01" placeholder ="Add Bio (Optional)" >
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="form-input col-4 p-0" style="display:inline-block">
-                            <label>Middle Name</label>
-                            <input type="text" name="middlename" value="<?php echo $user['middleName']?>"  placeholder="Protasio" tabindex="10" required>
-                        </div>
+                                <div class="form-group">
+                                    <div class="row mt-3">
+                                        <div class="col-4">
+                                            <label for="">First Name</label>
+                                            <input type="text" name="firstname" value="<?php echo $user['firstname']?>" placeholder="Enter Your First Name" class="form-control" tabindex="2" required>
+                                        </div>
 
-                        <div class="form-input col-4 p-0" style="display:inline-block">
-                            <label>Last Name</label>
-                            <input type="text" name="lastname" value="<?php echo $user['lastname']?>" placeholder="Rizal" tabindex="10" required>
-                        </div>
+                                        <div class="col-4">
+                                            <label for="">Middle Name </label>
+                                            <input type="text" name="middlename" value="<?php echo $user['middleName']?>" placeholder="Enter Your Middle Name" class="form-control" tabindex="3" required>
+                                        </div>
 
-                        <div class="form-input col-4 p-0" style="display:inline-block">
-                            <label>Birthday</label>
-                            <input type="date" name="birthday" value="<?php echo $user['birthday']?>" placeholder="Rizal" tabindex="10" required>
-                        </div>
+                                        <div class="col-md-4">
+                                            <label for="">Last Name</label>
+                                            <input type="text" name="lastname" value="<?php echo $user['lastname']?>" placeholder="Enter Your Last Name" class="form-control" tabindex="4" required>
+                                        </div>
+                                </div>
 
-                        <div class="form-input col-4 m-2" style="display:inline-block">
-                            
-                            <label>Gender</label>
-                            <select name="gender" id="gender" 
-                            style="  width: 100%;
-                            height: 45px;
-                            padding-left: 40px;
-                            margin-bottom: 20px;
-                            box-sizing: border-box;
-                            box-shadow: none;
-                            border: 1px solid #00000020;
-                            border-radius: 50px;
-                            outline: none;
-                            text-transform: capitalize;
-                            border: 2px solid #007bff;
-                            background: transparent;" tabindex="10" >
-                                <option><?php echo $user['gender'] ?></option>
-                                <option value="male">Male</option>
-                                <option value="female">Female</option>
-                            </select>
-                        </div>
+                                <div class="form-group">
+                                    <div class="row mt-3">
+                                        <div class="col-4">
+                                                <label for="">Date of Birth</label>
+                                                <input type="date" name="birthday" value="<?php echo $user['birthday']?>" placeholder="State your Date of Birth" class="form-control" tabindex="5" required>
+                                        </div>
+                                        <div class="col-4">
+                                                <label for="">Gender</label>
+                                                <select name="gender" required id="" tabindex="6" class="form-control" placeholder="What is your Gender">
+                                                    <option disable selected hidden><?php echo $user['gender']?></option>
+                                                    <option value="male">Male</option>
+                                                    <option value="female">Female</option>
+                                                </select>
+                                        </div>
+                                        <div class="col-4">
+                                                <label for="">Civil Status</label>
+                                                <select name="studStatus" required id="" tabindex="6" class="form-control" placeholder="What is your Civil Status? ">
+                                                    <option disable selected hidden> <?php echo $user['studStatus']?></option>
+                                                    <option value="Single">Single</option>
+                                                    <option value="Married">Married</option>
+                                                    <option value="Separated">Separated</option>
+                                                    <option value="Widow / Widower">Widow / Widowe</option>
+                                                    <option value="Single Parent">Single Parent</option>
+                                                </select>
+                                        </div>
+                                    </div>
+                                </div>
 
-                        <div class="form-input col-3 p-0" style="display:inline-block">
-                            <label>Civil Status</label>
-                            <!-- <input type="text" name="studStatus" value="<?php echo $user['studStatus']?>" placeholder="Rizal" tabindex="10" required> -->
-                            <select name="studStatus" id="studStatus" required
-                            style="  width: 100%;
-                            height: 45px;
-                            padding-left: 40px;
-                            margin-bottom: 20px;
-                            box-sizing: border-box;
-                            box-shadow: none;
-                            border: 1px solid #00000020;
-                            border-radius: 50px;
-                            outline: none;
-                            text-transform: capitalize;
-                            border: 2px solid #007bff;
-                            background: transparent;" tabindex="10" >
-                                <option><?php echo $user['studStatus'] ?></option>
-                                <option value="Single">Single</option>
-                                <option value="Married">Married</option>
-                                <option value="Separated">Separated</option>
-                                <option value="Widow / Widower">Widow / Widower</option>
-                                <option value="Single Parent">Single Parent</option>
-                            </select>
-                        </div>
-
-                        <h5>Contact Information</h5>
-                        <div class="form-input col-5 m-2" style="display:none">
-                          <label>Email</label>
-                          <input type="email" name="email" value="<?php echo $user['email']?>" placeholder="Email Address" tabindex="10" required>
-                        </div>
-
-                        <div class="form-input col-5 m-2" style="display:inline-block">
-                            <label>Personal Contact Number</label>
-                            <input type="text" name="contact" value="<?php echo $user['contact']?>"  placeholder="Phone Number" tabindex="10" required>
-                    
+                        <div class="row mt-4">
+                            <div class="h2">Contact Information</div>
                         </div>
                         
-                        <div class="form-input col-5 m-2" style="display:inline-block">
-                            <label>Work Contact Number</label>
-                            <input type="text" name="employerNo" value="<?php echo $user['employerNo']?>"  placeholder="Phone Number" tabindex="10" required>
+                            <div class="form-group">
+                                <div class="row mt-3">                                   
+                                    <div class="col-4">
+                                        <label for="" class="form-label">Email</label>
+                                         <input type="email" name="email" value="<?php echo $user['email']?>"  placeholder="Enter your Email" class="form-control" tabindex="7" required>
+                                    </div>
+                                    <div class="col-4">
+                                        <label for="">Contact Number</label>
+                                         <input type="text" name="contact" value="<?php echo $user['contact']?>" placeholder="Enter your Contact Number" class="form-control" tabindex="8" required>
+                                    </div>  
+                                    <div class="col-4">
+                                        <label for="">Work Contact Number</label>
+                                         <input type="text" name="employerNo" value="<?php echo $user['employerNo']?>" placeholder="Enter your Contact Number" class="form-control" tabindex="9" required>
+                                    </div>                             
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row mt-3">
+                                    <div class="col-12">        
+                                        <label for="">Present Address</label>
+                                         <input type="text" name="presentAddress" value="<?php echo $user['presentAddress']?>"  placeholder="Enter your Present Address" class="form-control" tabindex="10" required>         
+                                    </div>
+                                    <div class="col-12 mt-3">        
+                                        <label for="">Mailing Address</label>
+                                         <input type="text" name="mailingAddress" value="<?php echo $user['mailingAddress']?>"  placeholder="Enter your Mailing Address(Optional)" class="form-control" tabindex="11" >         
+                                    </div>
+                                    <div class="col-12 mt-3">        
+                                        <label for="">Provincial Address</label>
+                                         <input type="text" name="provincialAddress" value="<?php echo $user['provincialAddress']?>"  placeholder="Enter your Provincial Address(Optional)" class="form-control" tabindex="12" >         
+                                    </div>
+                                </div>
+                            </div>
+
+                        <div class="row mt-4">
+                            <div class="h2">Social Accounts</div>
                         </div>
 
-                        <div class="form-input col-12 m-2" style="display:inline-block">
-                            <label>Mailing Address</label>
-                            <input type="text" name="mailingAddress" value="<?php echo $user['mailingAddress']?>"  placeholder="Mailing Address" tabindex="10" required>
+                        <div class="form-group">
+                            <div class="row mt-3">
+                                <div class="col-4">
+                                    <label for="">Facebook URL</label>
+                                    <input type="text" name="fbURL" value="<?php echo $user['fbURL']?>"  placeholder="Enter your Facebook URL(Optional)" class="form-control" tabindex="13">       
+                                 </div>
+                                 <div class="col-4">
+                                    <label for="">LinkedIn</label>
+                                    <input type="text" name="linkURL" value="<?php echo $user['linkURL']?>"  placeholder="Enter your LinkedIn Profile URL(Optional)" class="form-control" tabindex="13">       
+                                 </div>
+                                 <div class="col-4">
+                                    <label for="">Twitter</label>
+                                    <input type="text" name="gmailURL" value="<?php echo $user['gmailURL']?>"  placeholder="Enter your Twitter URL(Optional)" class="form-control" tabindex="13">       
+                                 </div>
+                            </div>
                         </div>
 
-                        <div class="form-input col-12 m-2" style="display:inline-block">
-                            <label>Present Address</label>
-                            <input type="text" name="presentAddress" value="<?php echo $user['presentAddress']?>"  placeholder="Present Address" tabindex="10" required>
-                        </div>
+                    <div class="row">
+                        <div class="col-12">
+                        <button type="submit" name="submit" id="" class="btn btn-primary float-right mt-2 mr-3">Update</button>
+                         
+                        </div>            
+                    </div>
                         
 
-                        <div class="form-input col-12 m-2" style="display:inline-block">
-                            <label>Provincial Address</label>
-                            <input type="text" name="provincialAddress" value="<?php echo $user['provincialAddress']?>"  placeholder="Provincial Address" tabindex="10" required>
-                        </div>
-
-
-                        <div class="form-input col-12 d-none">
-                            
-                            <label>Address</label>
-                            <textarea style="  width: 100%;
-                            height: 45px;
-                            padding-left: 40px;
-                            margin-bottom: 20px;
-                            box-sizing: border-box;
-                            box-shadow: none;
-                            border: 1px solid #00000020;
-                            border-radius: 50px;
-                            outline: none;
-                            border: 2px solid #007bff;
-                            background: transparent;" class="form-control mb-3" name="address"><?php echo $user['address'] ?></textarea>
-                        
-                        </div>
-                        <div class="d-none">
-                        <h5 class="">Background</h5>
-                        <input type="hidden" value="<?php echo $user['interest']; ?>" name="testSchoolID" id="testSchoolID" />
-
-                        <div class="form-input col-5  " style="display:inline-block">
+                    <div class="form-input col-5  " style="display:inline-block" hidden>
                             <label>School Attended</label>
                             <select name="schoolAttended" 
                             id="schooolDataID"
@@ -350,7 +348,7 @@
                                 ?>      
                             </select>
                         </div>
-                        <div class="form-input col-4 " style="display:inline-block">
+                        <div class="form-input col-4 " style="display:inline-block" hidden>
                         
                             <label>Year Graduated</label>
                             <?php
@@ -361,7 +359,7 @@
                             ?>
                             <input type="number" name="yearGraduated" value="<?php echo $batch['Description'] ?>"  placeholder="2015" tabindex="10" required>
                         </div>
-                        <div class="form-input col-12 " style="display:inline-block">
+                        <div class="form-input col-12 " style="display:inline-block" hidden>
                             <label>Course Graduated</label>                       
                             <select name="courseGraduated" 
                             style="  width: 100%;
@@ -402,7 +400,7 @@
                             </select>
                         </div>
 
-                        <div class="form-input col-12  " style="display:inline-block">
+                        <div class="form-input col-12  " style="display:inline-block" hidden>
                             <label>Current Work</label>
                             <input type="text" name="CurrentWork" value="<?php echo $user['CurrentWork'] ?>">
                         </div>  
@@ -418,28 +416,7 @@
                         <input type="password" name="re_password" value="<?php echo $user['password'] ?>   placeholder="Confirm Password" required>
                         </div>
 
-                    
-                    </div>
-                    <h5>Social Accounts</h5>
-                        <div class="form-input col-4 p-0" style="display:inline-block">
-                            <label>Facebook</label>
-                            <input type="text" name="fbURL" value="<?php echo $user['fbURL']?>" tabindex="10" >
-                        </div>
-                        <div class="form-input col-4 p-0" style="display:inline-block">
-                            <label>Gmail</label>
-                            <input type="text" name="gmailURL" value="<?php echo $user['gmailURL']?>" tabindex="10" >
-                        </div>
-                        <div class="form-input col-4 p-0" style="display:inline-block">
-                            <label>Linkedln</label>
-                            <input type="text" name="linkURL" value="<?php echo $user['linkURL']?>" tabindex="10" >
-                        </div>
-                    <br/>
-
-                    <div class="mb-3">
-                        <button type="submit" name="submit" class="btn btn-success w-100">
-                            Update
-                        </button>
-                    </div>
+                        
                     </form>
             </div>
         </div>
