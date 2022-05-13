@@ -54,7 +54,7 @@
                 <?php if (isset($_GET['firstname'])) { ?>
                 <input type="text" name="firstname" value="<?php echo $_GET['firstname']; ?>"placeholder="firstname" tabindex="10" required>
                 <?php }else{ ?>
-                <input type="text" name="firstname" placeholder="Jose" tabindex="10" required>
+                <input type="text" name="firstname" placeholder="Enter Your First Name" tabindex="10" required>
             </div>
             <?php }?>
 
@@ -63,7 +63,7 @@
                 <?php if (isset($_GET['middlename'])) { ?>
                 <input type="text" name="middlename" value="<?php echo $_GET['middlename']; ?>"placeholder="middlename" tabindex="10" required>
                 <?php }else{ ?>
-                <input type="text" name="middlename" placeholder="Protasio" tabindex="10" required>
+                <input type="text" name="middlename" placeholder="Enter Your Middle Name" tabindex="10" required>
             </div>
             <?php }?>
 
@@ -72,7 +72,7 @@
                 <?php if (isset($_GET['lastname'])) { ?>
                 <input type="text" name="lastname" value="<?php echo $_GET['lastname']; ?>"placeholder="lastname" tabindex="10" required>
                 <?php }else{ ?>
-                <input type="text" name="lastname" placeholder="Rizal" tabindex="10" required>
+                <input type="text" name="lastname" placeholder="Enter Your Last Name" tabindex="10" required>
             </div>
             <?php }?>
 
@@ -81,7 +81,7 @@
                 <?php if (isset($_GET['birthday'])) { ?>
                 <input type="date" name="birthday" value="<?php echo $_GET['birthday']; ?>"placeholder="birthday" tabindex="10" required>
                 <?php }else{ ?>
-                <input type="date" name="birthday" placeholder="Rizal" tabindex="10" required>
+                <input type="date" name="birthday" placeholder="" tabindex="10" required>
             </div>
             <?php }?>
 
@@ -89,14 +89,14 @@
             <div class="form-input">
                 <span><i class="fa fa-user-o"></i></span>
                 <?php if (isset($_GET['lastname'])) { ?>
-                <input type="text" name="batch" value="<?php echo $_GET['batch']; ?>"placeholder="batch" tabindex="10" required>
+                <input type="text" name="batch" value="<?php echo $_GET['batch']; ?>"placeholder="batch" tabindex="10">
                 <?php }else{ ?>
-                <input type="text" name="batch" placeholder="2015" tabindex="10" required>
+                <input type="text" name="batch" placeholder="2015" tabindex="10" hidden>
             </div>
             <?php }?>
             
 
-            <div class="form-input">
+            <div class="form-input" hidden>
                 <span><i class="fa fa-user-o"></i></span>
                 <select name="gender" id="gender" style="  width: 100%;
                   height: 45px;
@@ -115,24 +115,23 @@
             </div>
 
             <div class="form-input">
-              <span><i class="fa fa-envelope-o"></i></span>
               <?php if (isset($_GET['email'])) { ?>
               <input type="email" name="email" value="<?php echo $_GET['email']; ?>"placeholder="Email Address" tabindex="10" required>
               <?php }else{ ?>
-              <input type="email" name="email" placeholder="Email Address" tabindex="10" required>
+              <input type="email" name="email" placeholder="Enter Your Email Address" tabindex="10" required>
               <?php }?>
             </div>
 
-            <div class="form-input">
+            <div class="form-input" hidden>
               <span><i class="fa fa-envelope-o"></i></span>
               <?php if (isset($_GET['contact'])) { ?>
-              <input type="contact" name="contact" value="<?php echo $_GET['contact']; ?>"placeholder="contact" tabindex="10" required>
+              <input type="contact" name="contact" value="<?php echo $_GET['contact']; ?>"placeholder="contact" tabindex="10">
               <?php }else{ ?>
-              <input type="contact" name="contact" placeholder="Phone Number" tabindex="10" required>
+              <input type="contact" name="contact" placeholder="Phone Number" tabindex="10" >
               <?php }?>
             </div>
 
-            <div class="form-input">
+            <div class="form-input" hidden>
               <span><i class="fa fa-map-marker"></i></span>
               <?php if (isset($_GET['address'])) { ?>
               <textarea style="  width: 100%;
