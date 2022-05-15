@@ -42,13 +42,13 @@ include "../dbconfig.php";
                         </div>
                     <div class="form-group col-12">
                         <label>Department Name:</label>
-                        <input type ="text"  name="Name" onKeyDown="return /[a-z]/i.test(event.key)" class="form-control" placeholder="Enter Department Name" required />
+                        <input type ="text"  name="Name" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" class="form-control text-capitalize" placeholder="Enter Department Name" required />
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Description:</label>                        
-                        <textarea name="address" onKeyDown="return /[a-z]/i.test(event.key)" class="form-control"></textarea>
+                        <textarea name="address"  class="form-control"></textarea>
 
                     </div>
                 </div>
@@ -101,13 +101,13 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Department Name:</label>
-                        <input type ="text" name="Name" id="Name" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"" class="form-control" placeholder="Ex: School of Computer Science" required>
+                        <input type ="text" name="Name" id="Name" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" class="form-control text-capitalize" placeholder="Ex: School of Computer Science" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Description:</label>
-                        <textarea name="address" id="address" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"" placeholder="Enter Description" class="form-control"></textarea>
+                        <textarea name="address" id="address" placeholder="Enter Description" class="form-control"></textarea>
                     </div>
                 </div>
             </div>

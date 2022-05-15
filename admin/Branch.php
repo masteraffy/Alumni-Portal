@@ -21,13 +21,13 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label class="form-label">Branch Name:</label>
-                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"  name="Name" class="form-control" id="validateBranchName" placeholder="Ex: Juan Sumulong Campus" required>
+                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"  name="Name" class="form-control text-capitalize" id="validateBranchName" placeholder="Ex: Juan Sumulong Campus" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Branch Location:</label>
-                        <input type ="text" onKeyDown="return /[a-z]/i.test(event.key)" name="address"   class="form-control" placeholder="Ex: Legarda" required>
+                        <input type ="text" onKeyDown="return /[a-z]/i.test(event.key)" name="address"   class="form-control text-capitalize" placeholder="Ex: Legarda" required>
                     </div>
                 </div>
             </div>
@@ -52,18 +52,18 @@ include "../dbconfig.php";
         </div>
         <form action="code.php" method="POST">
             <div class="modal-body">
-                    <input type ="hidden" id="branch_id" name="branch_id" class="form-control" placeholder="Enter Branch Name">
+                    <input type ="hidden" id="branch_id" name="branch_id" class="form-control " placeholder="Enter Branch Name">
 
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Branch Name:</label>
-                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"  name="Name" id="Name" class="form-control" placeholder="Enter Branch Name" required>
+                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"  name="Name" id="Name" class="form-control text-capitalize" placeholder="Enter Branch Name" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Branch Address:</label>
-                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" name="address" id="address" class="form-control" placeholder="Enter Branch Address" required>
+                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" name="address" id="address" class="form-control text-capitalize" placeholder="Enter Branch Address" required>
                     </div>
                 </div>
             </div>

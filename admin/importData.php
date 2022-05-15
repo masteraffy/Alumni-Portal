@@ -110,7 +110,7 @@ if(isset($_POST['importSubmit'])){
                                 $mail->send();
                                 $mail->clearAllRecipients(); 
                                 $counter++;
-                                $_SESSION['success'] = "Alumni Data Unsucessfully Imported: " . " " . $counter;
+                                $_SESSION['success'] = "Alumni Data Sucessfully Imported: " . " " . $counter;
                                 header('Location: alumni.php');
                             } catch (Exception $e) {
                                 echo "Mailer Error: " . $mail->ErrorInfo;

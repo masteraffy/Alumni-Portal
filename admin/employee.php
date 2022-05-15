@@ -30,17 +30,17 @@ include "../dbconfig.php";
                         
                         <div class="col-4">
                             <label>First Name:</label>
-                            <input type ="text" name="firstname" class="form-control "  onKeyDown="return /[a-z]/i.test(event.key)" required placeholder="Enter First Name">
+                            <input type ="text" name="firstname" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" class="form-control text-capitalize" required placeholder="Enter First Name">
                         </div>
                             
                         <div class="col-4">
                             <label>Middle Name:</label>
-                            <input type ="text" name="middlename" class="form-control " onKeyDown="return /[a-z]/i.test(event.key)" required placeholder="Enter Middle Name">
+                            <input type ="text" name="middlename" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" class="form-control text-capitalize" required placeholder="Enter Middle Name">
                         </div>
                         <div class="col-4">
 
                             <label>Last Name:</label>
-                            <input type ="text" name="lastname" class="form-control " onKeyDown="return /[a-z]/i.test(event.key)" required placeholder="Enter Last Name">
+                            <input type ="text" name="lastname" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" class="form-control text-capitalize" required placeholder="Enter Last Name">
                         </div>
                     </div>
                 </div>

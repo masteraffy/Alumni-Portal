@@ -44,13 +44,13 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Course Name:</label>
-                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" required name="Name" class="form-control" placeholder="Ex: Bachelor of Science in Computer Science">
+                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" required name="Name" class="form-control text-capitalize" placeholder="Ex: Bachelor of Science in Computer Science">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Course Abbv:</label>                          
-                        <input type ="address" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" required name="address" class="form-control" placeholder="Ex: BSCS">     
+                        <input type ="address" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" required name="address" class="form-control text-uppercase" placeholder="Ex: BSCS">     
 
 
                     </div>
@@ -102,13 +102,13 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Course Name:</label>
-                        <input type ="text" required name="Name" id="Name" class="form-control" placeholder="Enter Branch Name">
+                        <input type ="text" required name="Name" id="Name" class="form-control" placeholder="Enter Branch Name text-capitalize">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Course Abbv:</label>                          
-                        <input type ="text" id="abvC" required name="address" class="form-control" placeholder="Ex: BSIT">  
+                        <input type ="text" id="abvC" required name="address" class="form-control text-uppercase" placeholder="Ex: BSIT">  
                        
                     </div>
                 </div>
