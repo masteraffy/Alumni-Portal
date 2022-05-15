@@ -26,7 +26,7 @@ include "../dbconfig.php";
             unset($_SESSION['status']); 
         }
     ?>
-        <div class= "table-responsive">
+        <div class="table-responsive">
 
         <?php
             $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
@@ -35,7 +35,7 @@ include "../dbconfig.php";
             $query_run = mysqli_query($connection, $query);
         ?>
 
-        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>Title</th>

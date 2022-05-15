@@ -56,6 +56,8 @@
 <link rel="stylesheet" type="text/css" href="lib/slick/slick-theme.css">
 <link rel="stylesheet" type="text/css" href="css/style.css">
 <link rel="stylesheet" type="text/css" href="css/responsive.css">
+
+
 </head>
 <body>
 <div class="wrapper">
@@ -89,8 +91,6 @@
         echo $user['firstname']." ".$user['middleName']." ".$user['lastname']; 
     ?>
 </h3>
-<span>Bio Here:
-    
     <?php
             echo $user['bio']; 
     ?>
@@ -104,7 +104,7 @@
         $attended = $user['schoolAttended'];
         if($attended != ""){
             if($batch_row_cnt > 0){
-             echo $attended." - Batch (".$batch['Description'].")"  ;
+             echo $attended." <br> Batch (".$batch['Description'].")"  ;
                 
            }
            else{
@@ -123,7 +123,7 @@
     <?php 
         $courseGraduated = $user['title'];
         if($courseGraduated != " "){
-            echo "<b>Course :</b>".$courseGraduated ;
+            echo "<b>Course: </b>".$courseGraduated ;
         }
         else{
             echo "Course: Not Set";
@@ -152,7 +152,7 @@
 </ul>
 </div>
 
-<div class="tags-sec full-width">
+<div class="tags-sec full-width" hidden>
 <ul>
 
 <div class="cp-sec">
@@ -344,17 +344,20 @@
             <input type="hidden" name="id" placeholder="Title" value="<?php echo $user['userID'];?>" >
         </div>
         <div class="col-lg-12">
-            <input type="text" name="title" placeholder="Title" required>
+        <label class="mb-1">Title :</label>   
+            <input type="text" name="title" placeholder="" required>
         </div>
         <div class="col-lg-12">
-            <input type="text" name="Subtitle" placeholder="Subtitle" required>
+        <label class="mb-1">Subtitle :</label>   
+            <input type="text" name="Subtitle" placeholder="" required>
         </div>
         <div class="col-lg-12">
-            <textarea name="description" placeholder="Description"></textarea>
+        <label class="mb-1">Description :</label>   
+            <textarea name="description" placeholder=""></textarea>
         </div>
         <div class="col-lg-12">
-            <label>Image :</label>    
-            <br/>             
+        <label class="mb-1">Image :</label>   
+            <br>             
             <input type="file" name="file"/>
 
         </div>

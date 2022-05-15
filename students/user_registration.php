@@ -50,6 +50,11 @@
           } ?>
 
             <div class="form-input">
+              <span><i class="fa fa-user-o"></i></span>
+              <input type="text" name="studNo" placeholder="Enter Student Number" tabindex="10" required>
+            </div>
+
+            <div class="form-input">
                 <span><i class="fa fa-user-o"></i></span>
                 <?php if (isset($_GET['firstname'])) { ?>
                 <input type="text" name="firstname" value="<?php echo $_GET['firstname']; ?>"placeholder="firstname" tabindex="10" required>
@@ -85,15 +90,6 @@
             </div>
             <?php }?>
 
-
-            <div class="form-input">
-                <span><i class="fa fa-user-o"></i></span>
-                <?php if (isset($_GET['lastname'])) { ?>
-                <input type="text" name="batch" value="<?php echo $_GET['batch']; ?>"placeholder="batch" tabindex="10">
-                <?php }else{ ?>
-                <input type="text" name="batch" placeholder="2015" tabindex="10" hidden>
-            </div>
-            <?php }?>
             
 
             <div class="form-input" hidden>

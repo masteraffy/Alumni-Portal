@@ -38,17 +38,14 @@ input::-webkit-inner-spin-button {
 input[type=number] {
   -moz-appearance: textfield;
 }
-div#dataTable_filter,ul.pagination {
-    float: right;
+div#dataTable_filter, ul.pagination {
+    float: left;
 }
-
 
 div#dataTable_wrapper .row {
     display: flow-root;
 }
-div#dataTable_filter, ul.pagination{
-  float:unset;
-}
+
 div#dataTable_wrapper .col-sm-12.col-md-6 {
   
     flex: 0 0 100% !important;
@@ -58,7 +55,8 @@ div#dataTable_length {
     float: right !important;
 }
 input.form-control.form-control-sm {
-    width: 500px;
+    width: 350px;
+    margin-left: 5px ;
 }
 </style>
 <body id="page-top">

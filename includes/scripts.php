@@ -21,12 +21,19 @@
 
     
    <script>
-      $(document).ready(function() {
-        //  $('.table').DataTable();
-         $('.table').DataTable({
-            paging: true
-        });
-      } );  
+        $(document).ready(function () {
+    $('.dataTableDESC').DataTable({
+        order: [[3, 'desc']],
+        paging: true
+    });
+    });
+    $(document).ready(function () {
+    $('.dataTableASC').DataTable({
+        
+        paging: true
+    });
+    });
+     
    $(document).ready(function() {
     jQuery.noConflict();
     if (window.location.toString().includes("Changepass")) {

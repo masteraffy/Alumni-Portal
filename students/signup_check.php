@@ -29,7 +29,7 @@
 	   $data = htmlspecialchars($data);
 	   return $data;
 	}
-
+	$studno = $_POST['studNo'];
 	$email = validate($_POST['email']);
 	$pass = validate($_POST['password']);
 	$re_pass = validate($_POST['re_password']);
@@ -77,7 +77,7 @@
 			header("Location: user_registration.php?error=The is already exists please try another email&$user_data");
 	        exit();
 		}else {
-           $sql2 = "INSERT INTO students(id, firstname, middleName, lastname, photo, gender, birthday, email, contact, socMed, interest, schoolAttended, CurrentWork, courseGraduated, created_on, password, address) VALUES(null,'$firstname','$middlename','$lastname', ' ', '$gender','$birthday', '$email', '$contact', '-', ' ', ' ', ' ', ' ','now()','$pass','$address')";
+           $sql2 = "INSERT INTO students(id, firstname, middleName, lastname, photo, gender, birthday, email, contact, socMed, interest, schoolAttended, CurrentWork, courseGraduated, created_on, password, address, studNo) VALUES(null,'$firstname','$middlename','$lastname', ' ', '$gender','$birthday', '$email', '$contact', '-', ' ', ' ', ' ', ' ','now()','$pass','$address','$studno')";
            $result2 = mysqli_query($connection, $sql2);
            if ($result2) 
            {

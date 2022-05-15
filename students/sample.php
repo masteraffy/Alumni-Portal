@@ -217,7 +217,7 @@
                         
                         <div class="mb-3 col-6">
                             <label for="validationCustom04" class="form-label">Degree Earn in Arellano University<span class="text-danger">*</span></label>
-                        <select name="course" class="form-control">
+                        <select name="course" class="form-control" required>
                             <option value="<?php echo $courseID = $user["courseGraduated"]; ?>"
                             ><?php
                             $courseID = $user["courseGraduated"]; 
@@ -253,15 +253,13 @@
                         <div class="mb-3 col-md-6">
                             <label for="validationCustom10" class="form-label">Major<span class="text-danger"></span></label>
                             <input type="text" name="major" class="form-control" id="validationCustom10" placeholder="Pleae Input your Major if non leave blank" >
-                            <div class="invalid-feedback">
-                                This field is Required!
-                            </div>
+                          
                         </div> 
                         <div class="mb-3 col-6">
                             <label for="validationCustom04" class="form-label">Campus Graduated<span class="text-danger">*</span></label>
                             
                          <input type="hidden" value="<?php echo $user['interest']; ?>" name="testSchoolID" id="testSchoolID" />
-                            <select class="form-select" name="schoolAttended" id="schooolDataID" aria-label="Default select example" >
+                            <select class="form-select" name="schoolAttended" required id="schooolDataID" aria-label="Default select example" >
                                 <option data-id=<?php echo $user['interest']; ?>><?php echo $user['schoolAttended']; ?></option>
                                 <?php
                                     $query = "SELECT * FROM branch";
@@ -283,7 +281,7 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="validationCustom05" class="form-label">Year Graduated<span class="text-danger"></span></label>
-                            <input type="text" value="<?php echo $batch['Description']; ?>" name="yeargraduated" id="validationCustom05" class="form-control" placeholder="Example: 2021, 2022" >
+                            <input type="text" required value="<?php echo $batch['Description']; ?>" name="yeargraduated" id="validationCustom05" class="form-control" placeholder="Example: 2021, 2022" >
                             <div class="invalid-feedback">
                                 This field is Required!
                             </div>
