@@ -178,7 +178,7 @@ if(isset($_POST['employeeInsert'])){
     
     $department = $_POST['department'];
     $employeeNo = $_POST['employeeNo'];
-    $username = $_POST['username'];
+    $username = $_POST['email'];
     $firstname = $_POST['firstname'];
     $middlename = $_POST['middlename'];
     $lastname = $_POST['lastname'];
@@ -217,7 +217,7 @@ if(isset($_POST['employeeInsert'])){
 
             if($query_run_logs)
 			{
-                $_SESSION['success'] = "Successfully Created";
+                $_SESSION['success'] = "Employee Account for ID: <b> ". $employeeNo . " " . $firstname . " " .$middlename . " " . $lastname .  " </b> is Created Successfully!";
                 header('Location: employee.php');
                 
             }
@@ -295,6 +295,13 @@ if(isset($_POST['employeeEdit'])){
 if(isset($_POST['deleteEmployee'])){
     $id = $_POST['delete_id'];
 
+    //query for finding the employee # to include at delete message//
+    $queryadmin = "SELECT * FROM staff where id='$id'";
+    $query_admin = mysqli_query($connection, $queryadmin);
+    $result = mysqli_fetch_array($query_admin);
+    $emp_name = $result['FirstName'] . " " . $result['MiddleName'] . " " . $result['LastName'];
+    $emp_no = $result['IdNumber'];
+    ////
     $query = "DELETE FROM staff WHERE id='$id' "; 
     $query_run = mysqli_query($connection,$query);
 
@@ -306,7 +313,7 @@ if(isset($_POST['deleteEmployee'])){
 
         if($query_run_logs)
         {
-            $_SESSION['success'] = "Your Data is Deleted";
+            $_SESSION['success'] = "Employee <b> ID: " . $emp_no . " " . $emp_name . "</b> is Successfully Deleted!";
             header('Location: employee.php');
         }
     }
@@ -360,7 +367,7 @@ if(isset($_POST['employeeInsert1'])){
 
             if($query_run_logs)
 			{
-                $_SESSION['success'] = "Successfully Created";
+                $_SESSION['success'] = "Admin Account for <b> ". $firstname . " " . $middlename . " " . $lastname . " </b> is Created Successfully!";
                 header('Location: register.php'); 
             }
         }
@@ -436,6 +443,13 @@ if(isset($_POST['deleteEmployee1'])){
     $id = $_POST['delete_id'];
     $userID = $_SESSION['UserId'];
     
+    //query for finding the admin full name to include at delete message//
+    $queryadmin = "SELECT * FROM staff where id='$id'";
+    $query_admin = mysqli_query($connection, $queryadmin);
+    $result = mysqli_fetch_array($query_admin);
+    $admin_name = $result['FirstName']. " " . $result['MiddleName'] . " " . $result['LastName'];
+
+
     if($userID != $id)
     {
         $query = "DELETE FROM staff WHERE id='$id'"; 
@@ -449,7 +463,7 @@ if(isset($_POST['deleteEmployee1'])){
     
             if($query_run_logs)
             {
-                $_SESSION['success'] = "Your Data is Deleted" . $userID;
+                $_SESSION['success'] = "Admin <b> " .$admin_name. " </b> is Successfully Deleted!"; 
                 header('Location: register.php');
             }
         }

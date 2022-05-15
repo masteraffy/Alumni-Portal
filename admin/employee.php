@@ -19,14 +19,9 @@ include "../dbconfig.php";
         <form action="code.php" method="POST">
             <div class="modal-body">
                 <div class="row">
-                    <div class="form-group col-6">
+                    <div class="form-group col-md-12">
                             <label>Employee #:</label>
-                            <input type ="text" name="employeeNo" class="form-control" placeholder="Enter Employee Number">
-                    </div>
-                    
-                    <div class="form-group col-6">
-                            <label>Username:</label>
-                            <input type ="text" name="username" class="form-control" placeholder="Enter Username">
+                            <input type ="number"  name="employeeNo" class="form-control "  required placeholder="Enter Employee Number">
                     </div>
                 </div>
 
@@ -35,17 +30,17 @@ include "../dbconfig.php";
                         
                         <div class="col-4">
                             <label>First Name:</label>
-                            <input type ="text" name="firstname" class="form-control" placeholder="Enter First">
+                            <input type ="text" name="firstname" class="form-control "  onKeyDown="return /[a-z]/i.test(event.key)" required placeholder="Enter First Name">
                         </div>
                             
                         <div class="col-4">
                             <label>Middle Name:</label>
-                            <input type ="text" name="middlename" class="form-control" placeholder="Enter Middle">
+                            <input type ="text" name="middlename" class="form-control " onKeyDown="return /[a-z]/i.test(event.key)" required placeholder="Enter Middle Name">
                         </div>
                         <div class="col-4">
 
                             <label>Last Name:</label>
-                            <input type ="text" name="lastname" class="form-control" placeholder="Enter Last">
+                            <input type ="text" name="lastname" class="form-control " onKeyDown="return /[a-z]/i.test(event.key)" required placeholder="Enter Last Name">
                         </div>
                     </div>
                 </div>
@@ -54,7 +49,7 @@ include "../dbconfig.php";
                         
                     <div class="form-group col-6">
                         <label>Email:</label>
-                        <input type ="email" name="email" class="form-control" placeholder="Enter Email">
+                        <input type ="email" name="email" class="form-control" required placeholder="Enter Email">
                     </div>
 
                     <div class="form-group col-6">
@@ -67,7 +62,7 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-6">
                         <label>School Branch:</label>
-                        <select name="branch"  id="insert_branch"  class="form-control">
+                        <select name="branch"  id="insert_branch" required  class="form-control">
                             <option value="">Select Branch</option>
                             <?php
                                 $query = "SELECT * FROM branch";
@@ -88,7 +83,7 @@ include "../dbconfig.php";
 
                     <div class="form-group col-6">
                         <label>School Deparment:</label>
-                        <select name="department" class="form-control checkBranch">
+                        <select name="department" required class="form-control checkBranch">
                             <option value="">Select Department</option>
                             <?php
                                 $query = "SELECT * FROM departments";
@@ -235,17 +230,7 @@ include "../dbconfig.php";
                     </div>
 
                 </div>
-                <div class="row">
-                    <div class="form-group col-6">
-                        <label>Password:</label>
-                        <input type ="password" name="password" id="pass" class="form-control" placeholder="Enter Password">
-                    </div>
-                    <div class="form-group col-6">
-                        <label>Confirm Password:</label>
-                        <input type ="password" name="confirmpassword" id="cpass" class="form-control" placeholder="Enter Confirm Password">
-                    </div>
-
-                </div>
+                
                 <div id="error_edit"></div>
             </div>
             <div class="modal-footer">
@@ -304,6 +289,7 @@ include "../dbconfig.php";
         <table class="table table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
+                    <th>Employee Number</th>
                     <th>Full Name</th>
                     <th>Email</th>
                     <th>Contact</th>
@@ -323,6 +309,7 @@ include "../dbconfig.php";
                             ?>
                             <tr>
                                 <td hidden> <?php echo $row['Staff_ID']; ?> </td>
+                                <td> <?php echo $row['IdNumber']; ?> </td>
                                 <td> <?php echo $row['FirstName']." ".$row['MiddleName']." ".$row['LastName']; ?> </td>
                                 <td> <?php echo $row['Email']; ?> </td>
                                 <td> <?php echo $row['ContactNumber']; ?> </td>

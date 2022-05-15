@@ -19,7 +19,7 @@ else{
 
 
 <!-- Modal -->
-<div class="modal fade bd-example-modal-lg" id="addadminprofile" tabindex="-1" role = "dialog"aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade bd-example-modal-lg" id="addadminprofile" tabindex="1" role = "dialog"aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role = "document">
     <div class="modal-content">
         <div class="modal-header">
@@ -33,7 +33,7 @@ else{
                 <div class="row">
                     <div class="form-group col-6 ">
                         <label>Remarks / Alumni ID #:</label>
-                        <input type ="text" name="studRemarks" class="form-control" required  placeholder="Enter Remarks / Alumni ID #">
+                        <input type ="number" tabindex="2" name="studRemarks" class="form-control" required  placeholder="Enter Remarks / Alumni ID #">
                     </div>
                 </div>
                 <div class="form-group">
@@ -41,17 +41,17 @@ else{
                         
                         <div class="col-4">
                             <label>First Name:</label>
-                            <input type ="text" name="firstname" class="form-control" required  placeholder="Enter First">
+                            <input type ="text" tabindex="3" onKeyDown="return /[a-z]/i.test(event.key)" name="firstname" class="form-control" required  placeholder="Enter First">
                         </div>
                             
                         <div class="col-4">
                             <label>Middle Name:</label>
-                            <input type ="text" name="middlename" class="form-control" required  placeholder="Enter Middle">
+                            <input type ="text" tabindex="4" onKeyDown="return /[a-z]/i.test(event.key)" name="middlename" class="form-control" required  placeholder="Enter Middle">
                         </div>
                         <div class="col-4">
 
                             <label>Last Name:</label>
-                            <input type ="text" name="lastname" class="form-control" required  placeholder="Enter Last">
+                            <input type ="text" tabindex="5" onKeyDown="return /[a-z]/i.test(event.key)" name="lastname" class="form-control" required  placeholder="Enter Last">
                         </div>
                     </div>
                 </div>
@@ -72,13 +72,13 @@ else{
                         <div class="col-6">
                             
                             <label>Birthday:</label>
-                            <input type="date" name="birthday" class="form-control" required  placeholder="Rizal" tabindex="10">
+                            <input type="date" tabindex="6" name="birthday" class="form-control" required  placeholder="Rizal" tabindex="10">
                         </div>
                         
                         
                         <div class="form-group col-6">
                             <label>Email:</label>
-                            <input type ="email" name="email" class="form-control" required  placeholder="Enter Email">
+                            <input type ="email" tabindex="7" name="email" class="form-control" required  placeholder="Enter Email">
                         </div>
                     </div>
                 </div>
@@ -86,7 +86,7 @@ else{
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Address:</label>
-                        <textarea class="form-control" required  name="address"></textarea>  
+                        <textarea class="form-control" tabindex="8" required  name="address"></textarea>  
                     </div>
                 </div>
                 
@@ -95,7 +95,7 @@ else{
 
                     <div class="form-group col-6">
                         <label>Contact #:</label>
-                        <input type ="number" autocomplete="off" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;"
+                        <input type ="number" autocomplete="off" tabindex="9" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;"
                         onKeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"
                         name="contact" id="contact_insert" class="form-control" required  placeholder="Enter contact #">
                     </div>
@@ -103,7 +103,7 @@ else{
                     
                     <div class="form-group col-6">
                     <label>Batch</label>
-                            <input type="number"onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" class="form-control" required  name="yeargraduated"  placeholder="Enter year graduated" tabindex="10" required>
+                            <input type="number" tabindex="10" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" class="form-control" required  name="yeargraduated"  placeholder="Enter year graduated" tabindex="10" required>
                     </div>
 
                 </div>
@@ -111,7 +111,7 @@ else{
                     <div class="form-group col-6">
                         <label>Campus:</label>
                         <input type="hidden" name="testSchoolID" id="testSchoolID" />
-                        <select name="schoolAttended" id="schooolDataID" class="form-control" required >
+                        <select name="schoolAttended" tabindex="11" id="schooolDataID" class="form-control" required >
                         <option value="">Select</option>
                             <?php
                                 $query = "SELECT * FROM branch";
@@ -132,7 +132,7 @@ else{
 
                     <div class="form-group col-6">
                         <label>Course:</label>
-                        <select name="course" class="form-control" required >
+                        <select name="course" tabindex="12" class="form-control" required >
                             <option value="">Select</option>
                             <?php
                                 $query = "SELECT * FROM course";
@@ -157,11 +157,11 @@ else{
                 <div class="row">
                     <div class="form-group col-6 ">
                         <label>Student Number:</label>
-                        <input type ="text" name="studNo" class="form-control" required  placeholder="Enter Student Number">
+                        <input type ="number" tabindex="13" name="studNo" class="form-control" required  placeholder="Enter Student Number">
                     </div>
                     <div class="form-group col-6 ">
                         <label>Status:</label>
-                        <select name="studStatus" class="form-control" required >
+                        <select name="studStatus" tabindex="14" class="form-control" required >
                             <option value="">Select</option>
                             <option value="Single">Single</option>
                             <option value="Married">Married</option>
@@ -175,11 +175,11 @@ else{
                 <div class="row">
                     <div class="form-group col-6 ">
                         <label>Designation:</label>
-                        <input type ="text" name="studDes" class="form-control" required  placeholder="Enter Designation">
+                        <input type ="text" tabindex="15" name="studDes" class="form-control"   placeholder="Enter Designation">
                     </div>
                     <div class="form-group col-6 ">
                         <label>OR#:</label>
-                        <input type ="text" name="studOR" class="form-control" required  placeholder="Enter OR#">
+                        <input type ="number" tabindex="16" name="studOR" class="form-control" required  placeholder="Enter OR#">
                     </div>
                 </div>
                 
@@ -211,15 +211,15 @@ else{
                 <div id="error"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name="alumniInsert" id="alumniInsert" class="btn btn-primary">Save</button>
+                <button type="button" tabindex="18" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" tabindex="17" name="alumniInsert" id="alumniInsert" class="btn btn-primary">Save</button>
             </div>
         </form>
     </div>
   </div>
 </div>
 
-<div class="modal fade" id="updateadminprofile" tabindex="-1" role = "dialog"aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="updateadminprofile" tabindex="1" role ="dialog"aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role = "document">
     <div class="modal-content">
         <div class="modal-header">
@@ -238,25 +238,25 @@ else{
                     <div class="row">
                         <div class="form-group col-6 ">
                             <label>Remarks / Alumni ID #:</label>
-                            <input type ="text" name="studRemarks" id="studRemarks" class="form-control" required  placeholder="Enter Remarks / Alumni ID #">
+                            <input type ="number" tabindex="2" name="studRemarks" id="studRemarks" class="form-control" required  placeholder="Enter Remarks / Alumni ID #">
                         </div>
                     </div>
                     <div class="row">
-                        <input type="hidden" name="edit_id" id="edit_id" class="form-control" required  placeholder="Enter First">
+                        <input type="hidden"  name="edit_id" id="edit_id" class="form-control" required  placeholder="Enter First">
 
                         <div class="col-4">
                             <label>First Name:</label>
-                            <input type="text" name="firstname" id="firstname" class="form-control" required  placeholder="Enter First">
+                            <input type="text" tabindex="3" onKeyDown="return /[a-z]/i.test(event.key)" name="firstname" id="firstname" class="form-control" required  placeholder="Enter First">
                         </div>
                             
                         <div class="col-4">
                             <label>Middle Name:</label>
-                            <input type="text" name="middlename" id="middlename" class="form-control" required  placeholder="Enter Middle">
+                            <input type="text" tabindex="4" onKeyDown="return /[a-z]/i.test(event.key)" name="middlename" id="middlename" class="form-control" required  placeholder="Enter Middle">
                         </div>
                         <div class="col-4">
 
                             <label>Last Name:</label>
-                            <input type="text" name="lastname" id="lastname" class="form-control" required  placeholder="Enter Last">
+                            <input type="text" tabindex="5" onKeyDown="return /[a-z]/i.test(event.key)" name="lastname" id="lastname" class="form-control" required  placeholder="Enter Last">
                         </div>
                     </div>
                 </div>
@@ -267,7 +267,7 @@ else{
                         <div class="col-12 d-none">
                             
                             <label>Gender:</label>
-                            <select name="gender" class="form-control"  tabindex="10">
+                            <select name="gender" tabindex="6" class="form-control" required tabindex="10">
                                 <option id="gender"></option>
                                 <option value="male">Male</option>
                                 <option value="female">Female</option>
@@ -277,12 +277,12 @@ else{
                         <div class="col-6">
                             
                             <label>Birthday:</label>
-                            <input type="date" name="birthday" id="birthday" class="form-control" required  placeholder="Rizal" tabindex="10">
+                            <input type="date" tabindex="7" name="birthday" id="birthday" class="form-control" required  placeholder="Rizal" tabindex="10">
                         </div>
 
                         <div class="form-group col-6">
                             <label>Email:</label>
-                            <input type="email" name="email" id="email" class="form-control" required  placeholder="Enter Email">
+                            <input type="email" tabindex="8" disabled name="email" id="email" class="form-control" required  placeholder="Enter Email">
                         </div>
                         
                     </div>
@@ -290,21 +290,21 @@ else{
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Address:</label>
-                        <textarea class="form-control" required  id="address" name="address"></textarea>  
+                        <textarea class="form-control" tabindex="9" required  id="address" name="address"></textarea>  
                     </div>
                 </div>
 
                 <div class="row">
                     <div class="form-group col-6">
                         <label>Contact #:</label>
-                        <input type="number" autocomplete="off" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;"
+                        <input type="number" autocomplete="off" tabindex="10" onKeyDown="if(this.value.length==11 && event.keyCode!=8) return false;"
                         onKeypress="return event.keyCode === 8 || event.charCode >= 48 && event.charCode <= 57"
                         name="contact" id="contact" class="form-control" required  placeholder="Enter contact #">
                     </div>
                     
                     <div class="form-group col-6">
                             <label>Batch</label>
-                            <input type="number"onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" class="form-control" required  id="yeargraduated" name="yeargraduated"  placeholder="2015" tabindex="10" required>
+                            <input type="number" tabindex="11" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" class="form-control" required  id="yeargraduated" name="yeargraduated"  placeholder="2015" tabindex="10" required>
                     </div>
                 </div>
 
@@ -312,7 +312,7 @@ else{
                     <div class="form-group col-6">
                         <label>Campus:</label>
                         
-                        <input type="hidden" name="testSchoolIDedit" id="testSchoolIDedit" />
+                        <input type="hidden" tabindex="12" name="testSchoolIDedit" id="testSchoolIDedit" />
                         <select name="schoolAttended" name="testSchoolID" id="schooolDataIDedit" class="form-control" required >
                         <option id="schoolAttended">Select</option>
                             <?php
@@ -334,7 +334,7 @@ else{
 
                     <div class="form-group col-6">
                         <label>Course:</label>
-                        <select name="course" class="form-control" required >
+                        <select name="course" tabindex="13" class="form-control" required >
                         <?php echo '<option id="course">Select</option>';
                         ?>
                                
@@ -359,7 +359,7 @@ else{
                 <div class="row">
                     <div class="form-group col-6 d-none">
                         <label>Current Work:</label>
-                        <input type="text" id="currentWork" name="currentWork" class="form-control"   placeholder="Enter Current Work">
+                        <input type="text"  id="currentWork" name="currentWork" class="form-control"   placeholder="Enter Current Work">
                     </div>
                 </div>
                 
@@ -368,11 +368,11 @@ else{
                 <div class="row">
                     <div class="form-group col-6 ">
                         <label>Student Number:</label>
-                        <input type ="text" name="studNo" id="studNo" class="form-control" required  placeholder="Enter Student Number">
+                        <input type ="number" disabled tabindex="14" disabled name="studNo" id="studNo" class="form-control" required  placeholder="Enter Student Number">
                     </div>
                     <div class="form-group col-6 ">
                         <label>Status:</label>
-                        <select name="studStatus" class="form-control" required >
+                        <select name="studStatus" tabindex="15" class="form-control" required >
                             <option id="studStatus"></option>
                             <option value="Single">Single</option>
                             <option value="Married">Married</option>
@@ -387,11 +387,11 @@ else{
                 <div class="row">
                     <div class="form-group col-6 ">
                         <label>Designation:</label>
-                        <input type ="text" name="studDes" id="studDes" class="form-control" required  placeholder="Enter Designation">
+                        <input type ="text" tabindex="14" name="studDes" id="studDes" class="form-control" required  placeholder="Enter Designation">
                     </div>
                     <div class="form-group col-6 ">
                         <label>OR#:</label>
-                        <input type ="text" name="studOR" id="studOR" class="form-control" required  placeholder="Enter OR#">
+                        <input type ="number" tabindex="15" name="studOR" id="studOR" class="form-control" required  placeholder="Enter OR#">
                     </div>
                 </div>
                 
@@ -417,8 +417,8 @@ else{
                 <div id="error_edit"></div>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                <button type="submit" name="alumniEdit" id="alumniEdit" class="btn btn-primary">Save</button>
+                <button type="button" tabindex="17" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                <button type="submit" tabindex="16" name="alumniEdit" id="alumniEdit" class="btn btn-primary">Save</button>
             </div>
         </form>
     

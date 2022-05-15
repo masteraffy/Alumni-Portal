@@ -54,7 +54,7 @@ else{
         <div class="bg-white py-2 collapse-inner rounded">
             <a class="collapse-item" href="announcement.php">Announcements & Events</a> 
             <a class="collapse-item" href="jobPost.php">Job Postings</a>
-            <a class="collapse-item" href="approve.php" style="<?php echo "display:".$display ?>">Approve Postings</a>             
+            <a class="collapse-item" href="approve.php" style="<?php echo "display:".$display ?>" >Approve Postings</a>             
         </div>
     </div>
 </li>

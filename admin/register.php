@@ -159,17 +159,17 @@ include "../dbconfig.php";
                         
                         <div class="col-4">
                             <label>First Name:</label>
-                            <input type ="text" name="firstname" id="firstname" class="form-control" placeholder="Enter First">
+                            <input type ="text" name="firstname" onKeyDown="return /[a-z]/i.test(event.key)" id="firstname" class="form-control" placeholder="Enter First">
                         </div>
                             
                         <div class="col-4">
                             <label>Middle Name:</label>
-                            <input type ="text" name="middlename" id="middlename" class="form-control" placeholder="Enter Middle">
+                            <input type ="text" name="middlename" onKeyDown="return /[a-z]/i.test(event.key)" id="middlename" class="form-control" placeholder="Enter Middle">
                         </div>
                         <div class="col-4">
 
                             <label>Last Name:</label>
-                            <input type ="text" name="lastname" id="lastname" class="form-control" placeholder="Enter Last">
+                            <input type ="text" name="lastname" onKeyDown="return /[a-z]/i.test(event.key)" id="lastname" class="form-control" placeholder="Enter Last">
                         </div>
                     </div>
                 </div>
@@ -290,16 +290,17 @@ include "../dbconfig.php";
 
             $query = "SELECT * FROM staff where userData = 'Administrator'";
             $query_run = mysqli_query($connection, $query);
+            
         ?>
 
         <table class="table table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
-                    <th>ID</th>
-                    <th>Fullname</th>
+                    <th>Full Name</th>
                     <th>Email</th>
                     <th>Contact</th>
-                    <th>ACTIONS</th>
+                    <th>Actions
+                    <th hidden></th>
                 </tr>
             </thead>
             <tbody>
@@ -308,12 +309,14 @@ include "../dbconfig.php";
                     {
                         while($row = mysqli_fetch_assoc($query_run))
                         {
+                            
                             ?>
                             <tr>
-                                <td> <?php echo $row['Id']; ?> </td>
+                                <td hidden> <?php echo $row['Id']; ?> </td>
                                 <td> <?php echo $row['FirstName']." ".$row['MiddleName']." ".$row['LastName']; ?> </td>
                                 <td> <?php echo $row['Email']; ?> </td>
                                 <td> <?php echo $row['ContactNumber']; ?> </td>
+                                
                                 <td>
                                     <button 
                                     
@@ -371,7 +374,7 @@ include "../dbconfig.php";
                                             <h5>Are you sure you want to delete?</h5>
                                             
                                             <form action="code.php" method="POST">
-                                                <input type="hidden" id="delete_id" name="delete_id" value="<?php echo $row['Id']; ?>">
+                                                <input type="hidden" id="delete_id" name="delete_id" value="<?php echo $row['Id']; ?>">        
                                                 <button type="submit" name="deleteEmployee1" class="btn btn-danger"> Yes</button>
                                               <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
                                             </form>

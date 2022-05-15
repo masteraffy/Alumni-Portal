@@ -44,13 +44,13 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Course Name:</label>
-                        <input type ="text" required name="Name" class="form-control" placeholder="Enter Course Name">
+                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" required name="Name" class="form-control" placeholder="Ex: Bachelor of Science in Computer Science">
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Course Abbv:</label>                          
-                        <input type ="address" required name="address" class="form-control" placeholder="Ex: BSIT">     
+                        <input type ="address" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" required name="address" class="form-control" placeholder="Ex: BSCS">     
 
 
                     </div>
@@ -164,7 +164,7 @@ include "../dbconfig.php";
                     <th>ID</th>
                     <th>Course Name</th>
                     <th>Course Code</th>
-                    <th>ACTIONS</th>
+                    <th>Actions</th>
                 </tr>
             </thead>
             <tbody>

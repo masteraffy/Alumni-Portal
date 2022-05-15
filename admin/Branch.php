@@ -21,13 +21,13 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label class="form-label">Branch Name:</label>
-                        <input type ="text"  name="Name" class="form-control" id="validateBranchName" placeholder="Enter Branch Name" required>
+                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"  name="Name" class="form-control" id="validateBranchName" placeholder="Ex: Juan Sumulong Campus" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
-                        <label>Branch Address:</label>
-                        <input type ="text" name="address"   class="form-control" placeholder="Enter Branch Address" required>
+                        <label>Branch Location:</label>
+                        <input type ="text" onKeyDown="return /[a-z]/i.test(event.key)" name="address"   class="form-control" placeholder="Ex: Legarda" required>
                     </div>
                 </div>
             </div>
@@ -57,13 +57,13 @@ include "../dbconfig.php";
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Branch Name:</label>
-                        <input type ="text" name="Name" id="Name" class="form-control" placeholder="Enter Branch Name" required>
+                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')"  name="Name" id="Name" class="form-control" placeholder="Enter Branch Name" required>
                     </div>
                 </div>
                 <div class="row">
                     <div class="form-group col-12">
                         <label>Branch Address:</label>
-                        <input type ="text" name="address" id="address" class="form-control" placeholder="Enter Branch Address" required>
+                        <input type ="text" oninput="this.value = this.value.replace(/[^a-z, ]/, '')" name="address" id="address" class="form-control" placeholder="Enter Branch Address" required>
                     </div>
                 </div>
             </div>
@@ -116,9 +116,9 @@ include "../dbconfig.php";
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>School</th>
-                    <th>Address</th>
-                    <th>ACTIONS</th>
+                    <th>Campus Name</th>
+                    <th>Location</th>
+                    <th>Action</th>
                 </tr>
             </thead>
             <tbody>
