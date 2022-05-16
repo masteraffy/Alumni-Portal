@@ -494,7 +494,7 @@ else{
                         <div class="row">
                             <div class="col-6">
                                 <label>Batch:</label>
-                                <input type="text" name="batch"   id="firstname" class="form-control" required  placeholder="Enter year graduated">
+                                <input type="number" name="batch" maxlength = "4"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  id="firstname" class="form-control" required  placeholder="Ex: 2022">
                             </div>
                                 
                             <div class="col-6">
