@@ -178,6 +178,7 @@
                             <input type="text" name="prepareOthers" id="validationCustom05" class="form-control" placeholder="Please state your answer">                         
                         </div>
                         <Label>9. Kindly reflect all achievements/recognitions/ or awards accorded to you after graduation from Arellano University</Label><br>
+                        <div class="row">
                         <div class="mb-3 col-md-4">
                             <center>
                             <label for="validationCustom05" class="form-label">Award<span class="text-danger"></span></label>
@@ -197,10 +198,11 @@
                             <input type="text" name="year" id="validationCustom05" class="form-control" placeholder="Please state your answer"> 
                         </div>
 
+                        </div>
                     </div>
                         
                         <div class="d-grid gap-2 d-md-flex justify-content-md-start">
-                                <input type="checkbox" value="disclaimer" id="disclaimer" />  Disclaimer: I have read the Terms and Policies and Privacy Policy           
+                                <input type="checkbox" value="disclaimer" id="disclaimer" />  Disclaimer: I have read the<a href="privacy.html" class="link-primary" target="_blank"> Terms, Policies, and Privacy Policy </a>         
                             </div>
                 
                         

@@ -187,3 +187,7 @@
 .registerationBgColor{
   background-color: #1572A1;
 }
+.justify-text {
+  text-align: justify;
+  line-height: 2;
+}
