@@ -63,6 +63,7 @@
                               </div>                             
                         </div>  
                         <Label>2. Please list down all professional or work-related training program(s) including further studies you have attended after college.</Label><br>
+                        <div class="row mt-2">
                         <div class="mb-3 col-md-4">
                             <label for="training" class="form-label">Title of Training / Advance Study / Course<span class="text-danger"></span></label>
                             <input type="text" name="training" id="training" class="form-control" placeholder="Please state your answer"> 
@@ -75,6 +76,8 @@
                             <label for="trainingIns" class="form-label">Training Institution / College / University<span class="text-danger"></span></label>
                             <input type="text" name="trainingIns" id="trainingIns" class="form-control" placeholder="Please state your answer"> 
                         </div>
+                        </div>
+                        
                         <div class="mb-3 col-12">
                             <label>3. What made you pursue further studies?</label>
                             <div class="form-check form-check-inline">

@@ -338,39 +338,39 @@
 <h3>Whats on Your Mind?</h3>
 <div class="post-project-fields">
 
-<form action="code.php" method="POST" enctype="multipart/form-data">
-    <div class="row">
-        <div class="col-lg-12">
-            <input type="hidden" name="id" placeholder="Title" value="<?php echo $user['userID'];?>" >
-        </div>
-        <div class="col-lg-12">
-        <label class="mb-1">Title :</label>   
-            <input type="text" name="title" placeholder="" required>
-        </div>
-        <div class="col-lg-12">
-        <label class="mb-1">Subtitle :</label>   
-            <input type="text" name="Subtitle" placeholder="" required>
-        </div>
-        <div class="col-lg-12">
-        <label class="mb-1">Description :</label>   
-            <textarea name="description" placeholder=""></textarea>
-        </div>
-        <div class="col-lg-12">
-        <label class="mb-1">Image :</label>   
-            <br>             
-            <input type="file" name="file"/>
+    <form action="code.php" method="POST" enctype="multipart/form-data">
+        <div class="row">
+            <div class="col-lg-12">
+                <input type="hidden" name="id" placeholder="Title" value="<?php echo $user['userID'];?>" >
+            </div>
+            <div class="col-lg-12">
+            <label class="mb-1">Title :</label>   
+                <input type="text" name="title" placeholder="" required>
+            </div>
+            <div class="col-lg-12">
+            <label class="mb-1">Subtitle :</label>   
+                <input type="text" name="Subtitle" placeholder="" required>
+            </div>
+            <div class="col-lg-12">
+            <label class="mb-1">Description :</label>   
+                <textarea name="description" placeholder=""></textarea>
+            </div>
+            <div class="col-lg-12">
+            <label class="mb-1">Image :</label>   
+                <br>             
+                <input type="file" name="file"/>
 
+            </div>
+            <div class="col-lg-12">
+                <ul>
+                <li>
+                    <button type="submit"  name="postContent" class="active"> Yes</button>
+                </li>
+                <li><a href="#" title="">Cancel</a></li>
+                </ul>
+            </div>
         </div>
-        <div class="col-lg-12">
-            <ul>
-            <li>
-                <button type="submit" name="postContent" class="active"> Yes</button>
-            </li>
-            <li><a href="#" title="">Cancel</a></li>
-            </ul>
-        </div>
-    </div>
-</form>
+    </form>
 </div>
 <a href="#" title="">x</a>
 </div>
@@ -398,7 +398,18 @@
 <script type="text/javascript" src="lib/slick/slick.min.js"></script>
 <script type="text/javascript" src="js/scrollbar.js"></script>
 <script type="text/javascript" src="js/script.js"></script>
-
+<!--SweetAlert-->
+<script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+<script>
+    function sweetalertclick(){
+        Swal.fire({
+            title: 'Posting Done!',
+            text: 'Post will be checked by the Administrators',
+            icon: 'warning',
+            confirmButtonText: 'Done'
+        });
+    }
+</script>
 <script>
     $(document).ready(function(){
         $(".hideDropdown").click(function(){
@@ -406,5 +417,6 @@
         });
     });
     </script>
+
 </body>
 </html>
