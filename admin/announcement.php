@@ -177,7 +177,7 @@ include "../dbconfig.php";
         <?php
             $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
 
-            $query = "SELECT * FROM events left join staff on events.CreatedUser = staff.Id where TypeOfContent !='Jobs' AND AllowPost ='Approved'";
+            $query = "SELECT * FROM events left join staff on events.CreatedUser = staff.Id where TypeOfContent !='Jobs' AND AllowPost ='Approved' AND Usertype !='Alumni'";
             $query_run = mysqli_query($connection, $query);
         ?>
 
@@ -223,9 +223,6 @@ include "../dbconfig.php";
                                     <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#confirmModal" data-id="<?php echo $row['id']; ?>">
                                     <i class="far fa-trash-alt"></i>
                                     </button>
-
-
-                                    
                             
                                     <!-- Modal -->
                                     <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
