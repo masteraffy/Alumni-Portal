@@ -418,5 +418,22 @@
     });
     </script>
 
+    <?php
+        if(isset($_SESSION['success']) && $_SESSION['success']!='')
+        {
+        ?>
+        <script>
+            Swal.fire({
+            title: 'Posting Done!',
+            text: 'Post will be checked by the Administrators',
+            icon: 'warning',
+            confirmButtonText: 'Done'
+        });
+        </script>
+        <?php
+         unset($_SESSION['success']);
+        }
+    ?>
+
 </body>
 </html>
