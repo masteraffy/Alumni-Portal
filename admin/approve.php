@@ -46,7 +46,7 @@
                 <?php
                     $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
 
-                    $query = "SELECT *, events.id as Event_ID FROM events left join students on events.CreatedUser = students.id where UserType='Alumni'";
+                    $query = "SELECT *, events.id as Event_ID FROM events left join students on events.CreatedUser = students.id where UserType='Alumni' AND AllowPost='Pending'";
                     $query_run = mysqli_query($connection, $query);
                 ?>
 
