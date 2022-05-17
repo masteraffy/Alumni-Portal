@@ -103,7 +103,7 @@ else{
                     
                     <div class="form-group col-6">
                     <label>Batch</label>
-                            <input type="number" tabindex="10" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" class="form-control" required  name="yeargraduated"  placeholder="Enter year graduated" tabindex="10" required>
+                            <input type="number" tabindex="10" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" required  name="yeargraduated"  placeholder="Enter year graduated" tabindex="10" required>
                     </div>
 
                 </div>
@@ -153,11 +153,12 @@ else{
                 </div>
                 <hr>
                 <h5></h5>
-                
+<!--Add Admin-->               
                 <div class="row">
                     <div class="form-group col-6 ">
                         <label>Student Number:</label>
-                        <input type ="number" tabindex="13" name="studNo" class="form-control" required  placeholder="Enter Student Number">
+                        <input  tabindex="13" name="studNo"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control format-studNo" id="" required  placeholder="Ex: 18-00001">
                     </div>
                     <div class="form-group col-6 ">
                         <label>Status:</label>
@@ -303,9 +304,10 @@ else{
                     </div>
                     
                     <div class="form-group col-6">
-                            <label>Batch</label>
-                            <input type="number" tabindex="11" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" class="form-control" required  id="yeargraduated" name="yeargraduated"  placeholder="2015" tabindex="10" required>
+                        <label>Batch</label>
+                            <input type="number" tabindex="10" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" required  name="yeargraduated"  placeholder="Enter year graduated" tabindex="10" required>
                     </div>
+                    
                 </div>
 
                 <div class="row">
@@ -364,11 +366,12 @@ else{
                 </div>
                 
                 <hr>
-                
+<!--Update Admin-->              
                 <div class="row">
-                    <div class="form-group col-6 ">
+                <div class="form-group col-6 ">
                         <label>Student Number:</label>
-                        <input type ="number" disabled tabindex="14" disabled name="studNo" id="studNo" class="form-control" required  placeholder="Enter Student Number">
+                        <input  tabindex="13" disabled name="studNo"
+                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control format-studNo" id="" required  placeholder="Ex: 18-00001">
                     </div>
                     <div class="form-group col-6 ">
                         <label>Status:</label>
@@ -991,6 +994,25 @@ include('../includes/scripts.php');
         
         
     });
+
+    function edValueKeyPress()
+    {
+        var edValue = document.getElementById("edValue");
+        var s = edValue.value;
+
+        var lblValue = document.getElementById("lblValue");
+
+      if  ( s >=48 && s <= 57)
+
+         // to check whether pressed key is number or not 
+               return true; 
+
+
+         else return false;
+
+
+
+    }
 
     
 </script>

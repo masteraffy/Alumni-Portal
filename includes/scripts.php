@@ -19,6 +19,37 @@
     <script src="https://cdn.datatables.net/1.11.5/js/dataTables.bootstrap4.min.js"></script>
     <script src="https://kit.fontawesome.com/cf0f50b81d.js" crossorigin="anonymous"></script>
 
+    <!--CleaveJs Link-->
+    <script src="https://nosir.github.io/cleave.js/dist/cleave.min.js"></script>
+    <script src="https://nosir.github.io/cleave.js/dist/cleave-phone.i18n.js"></script>
+
+    <!--CleaveJS Implementation to Input Fields -->
+    <script>
+        var cleaveCustom = new Cleave('.format-studNo', {
+            blocks: [2,5],
+            delimiter: '-',
+        });
+
+        function edValueKeyPress()
+    {
+        var edValue = document.getElementById("edValue");
+        var s = edValue.value;
+
+        var lblValue = document.getElementById("lblValue");
+
+      if  ( s >=48 && s <= 57)
+
+         // to check whether pressed key is number or not 
+               return true; 
+
+
+         else return false;
+
+
+
+    }
+        
+    </script>
     
    <script>
         $(document).ready(function () {
