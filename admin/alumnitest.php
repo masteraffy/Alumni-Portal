@@ -483,7 +483,7 @@ else{
                 <h6 class= "m-0 font-weight-bold text-primary"> List of Alumni </h6>
                     <div class="d-flex flex-nowrap float-end">
                             <label for="" class="text-md text-dark mt-2 mr-3">Bulk Upload Alumni:</label>
-                            <form action="importExcel.php" method="POST" enctype="multipart/form-data">
+                            <form action="importCSV.php" method="POST" enctype="multipart/form-data">
                                 <input type="file" name="uploadfile" onchange="this.form.submit();" value="Bulk Upload Alumni"
                                  id="bulk" class="form-control" style="<?php echo "display:".$display ?>"
                                  accept="text/x-comma-separated-values, text/comma-separated-values, application/octet-stream, 

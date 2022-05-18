@@ -1324,22 +1324,22 @@ if(isset($_POST['checkbox'][0])){
 		$query_run = mysqli_query($connection, $query);
         $del_count ++;
 
-        if($query_run)
-        {
-            $email_login= $_SESSION['username'];
-            $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Updated an Announcement / Events: $id',now(),'Announcement / Events')";
-            $query_run_logs = mysqli_query($connection, $querylogs);
-                if($query_run_logs)
-                {
-                    $_SESSION['success'] = "Your Data is Deleted";
-                    header('Location: alumni.php');
-                }
-        }
-        else
-        {
-            $_SESSION['status'] = "Your Data is NOT Deleted";
-            header('Location: alumni.php');
-        }
+            if($query_run)
+            {
+                $email_login= $_SESSION['username'];
+                $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Deleted an Alumni Account $id',now(),'Announcement / Events')";
+                $query_run_logs = mysqli_query($connection, $querylogs);
+                    if($query_run_logs)
+                    {
+                        $query = "DELETE FROM batch WHERE Name='$id' "; 
+                        $query_run1 = mysqli_query($connection,$query);
+                    }
+            }
+            else
+            {
+                $_SESSION['status'] = "Your Data is NOT Deleted";
+                header('Location: alumni.php');
+            }
         }
 }
 
