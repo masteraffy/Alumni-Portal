@@ -493,6 +493,9 @@ else{
                             <button type="button" class="btn btn-primary ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#addadminprofile">
                                 Add Alumni
                             </button>
+                            <button type="button" class="btn btn-danger ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
+                            Multiple Delete
+                            </button>
                     </div>
             </div>
 
@@ -514,6 +517,20 @@ else{
                         echo '<div class="alert alert-danger"> '.$_SESSION['exist'].' </div>';
                         unset($_SESSION['exist']); 
                     }
+
+                    if(isset($_SESSION['empty']) && $_SESSION['empty'] !='')
+                    {
+                        echo '<div class="alert alert-danger"> '.$_SESSION['empty'].' </div>';
+                        unset($_SESSION['empty']); 
+                    }
+
+                    if(isset($_SESSION['regex']) && $_SESSION['regex'] !='')
+                    {
+                        echo '<div class="alert alert-danger"> '.$_SESSION['regex'].' </div>';
+                        unset($_SESSION['regex']); 
+                    }
+
+
                 ?>
                 <div class= "table-responsive">
 

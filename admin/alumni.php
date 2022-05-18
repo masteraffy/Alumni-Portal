@@ -542,21 +542,23 @@ else{
 
     <div class = "card shadow mb-4">
             <div class = "card-header py-3">
-                <h6 class= "m-0 font-weight-bold text-primary">
-                    List of Alumni
-                    <button type="button" class="btn btn-danger float-end m-2 mb-0 mt-0 " style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
-                        Multiple Delete
-                    </button>
-                    <button type="button" class="btn btn-primary float-end m-2 mb-0 mt-0 " style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#addadminprofile">
-                        Add Alumni
-                    </button>
-                    <button type="button" class="btn btn-primary float-end m-2 mb-0 mt-0 " style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#bulkUpload">
-                    Bulk Upload Alumni
-                    </button>
-                    
-                <h6>
-
-                    
+                <h6 class= "m-0 font-weight-bold text-primary"> List of Alumni </h6>
+                    <div class="d-flex flex-nowrap float-end">
+                            <label for="" class="text-md text-dark mt-2 mr-3">Bulk Upload Alumni:</label>
+                            <form action="importCSV.php" method="POST" enctype="multipart/form-data">
+                                <input type="file" name="uploadfile" onchange="this.form.submit();" value="Bulk Upload Alumni"
+                                 id="bulk" class="form-control" style="<?php echo "display:".$display ?>"
+                                 accept="text/x-comma-separated-values, text/comma-separated-values, application/octet-stream, 
+                                 application/vnd.ms-excel, application/x-csv, text/x-csv, text/csv, application/csv,
+                                  application/excel, application/vnd.msexcel">
+                            </form>                
+                            <button type="button" class="btn btn-primary ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#addadminprofile">
+                                Add Alumni
+                            </button>
+                            <button type="button" class="btn btn-danger ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
+                            Multiple Delete
+                            </button>
+                    </div>
             </div>
 
             <div class = "card-body">
@@ -576,6 +578,18 @@ else{
                     {
                         echo '<div class="alert alert-danger"> '.$_SESSION['exist'].' </div>';
                         unset($_SESSION['exist']); 
+                    }
+
+                    if(isset($_SESSION['empty']) && $_SESSION['empty'] !='')
+                    {
+                        echo '<div class="alert alert-danger"> '.$_SESSION['empty'].' </div>';
+                        unset($_SESSION['empty']); 
+                    }
+
+                    if(isset($_SESSION['regex']) && $_SESSION['regex'] !='')
+                    {
+                        echo '<div class="alert alert-danger"> '.$_SESSION['regex'].' </div>';
+                        unset($_SESSION['regex']); 
                     }
                 ?>
 
