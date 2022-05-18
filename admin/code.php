@@ -1315,4 +1315,33 @@ if(isset($_POST['deleteJob'])){
     }
 }
 
+
+$del_count = 0;
+if(isset($_POST['checkbox'][0])){
+	foreach($_POST['checkbox'] as $list){
+		$id=mysqli_real_escape_string($connection,$list);
+        $query = "DELETE FROM students WHERE id='$id'";
+		$query_run = mysqli_query($connection, $query);
+        $del_count ++;
+
+        if($query_run)
+        {
+            $email_login= $_SESSION['username'];
+            $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Updated an Announcement / Events: $id',now(),'Announcement / Events')";
+            $query_run_logs = mysqli_query($connection, $querylogs);
+                if($query_run_logs)
+                {
+                    $_SESSION['success'] = "Your Data is Deleted";
+                    header('Location: alumni.php');
+                }
+        }
+        else
+        {
+            $_SESSION['status'] = "Your Data is NOT Deleted";
+            header('Location: alumni.php');
+        }
+        }
+}
+
+
 ?>
