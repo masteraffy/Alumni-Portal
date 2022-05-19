@@ -51,7 +51,7 @@
 
             <div class="form-input">
               <span><i class="fa fa-user-o"></i></span>
-              <input type="text" name="studNo" placeholder="Enter Student Number" tabindex="10" required>
+              <input type="text" class="format-studNo" name="studNo" placeholder="Enter Student Number" tabindex="10" required>
             </div>
 
             <div class="form-input">
@@ -179,6 +179,8 @@
   </div>
   </section>
 </body>
-
-
 </html>
+
+<?php
+include('../includes/scripts.php');  
+?>

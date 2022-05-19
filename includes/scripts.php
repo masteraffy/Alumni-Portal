@@ -30,6 +30,11 @@
             delimiter: '-',
         });
 
+        var cleaveCustom1 = new Cleave('.format-alumniID', {
+            blocks: [2,4],
+            delimiter: '-',
+        });
+
         function edValueKeyPress()
     {
         var edValue = document.getElementById("edValue");

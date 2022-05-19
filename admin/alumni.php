@@ -33,7 +33,7 @@ else{
                 <div class="row">
                     <div class="form-group col-6 ">
                         <label>Remarks / Alumni ID #:</label>
-                        <input type ="number" tabindex="2" name="studRemarks" class="form-control" required  placeholder="Enter Remarks / Alumni ID #">
+                        <input tabindex="2" name="studRemarks" class="form-control format-alumniID" required  placeholder="Enter Remarks / Alumni ID #">
                     </div>
                 </div>
                 <div class="form-group">
@@ -239,7 +239,7 @@ else{
                     <div class="row">
                         <div class="form-group col-6 ">
                             <label>Remarks / Alumni ID #:</label>
-                            <input type ="number" tabindex="2" name="studRemarks" id="studRemarks" class="form-control" required  placeholder="Enter Remarks / Alumni ID #">
+                            <input  tabindex="2" name="studRemarks" id="studRemarks" class="form-control format-alumniID" required  placeholder="Enter Remarks / Alumni ID #">
                         </div>
                     </div>
                     <div class="row">
