@@ -548,14 +548,12 @@ else{
                             <form action="importCSV.php" method="POST" enctype="multipart/form-data">
                                 <input type="file" name="uploadfile" onchange="this.form.submit();" value="Bulk Upload Alumni"
                                  id="bulk" class="form-control" style="<?php echo "display:".$display ?>"
-                                 accept="text/x-comma-separated-values, text/comma-separated-values, application/octet-stream, 
-                                 application/vnd.ms-excel, application/x-csv, text/x-csv, text/csv, application/csv,
-                                  application/excel, application/vnd.msexcel">
+                                 accept="application/vnd.msexcel, text/comma-separated-values, text/csv">
                             </form>                
                             <button type="button" class="btn btn-primary ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#addadminprofile">
                                 Add Alumni
                             </button>
-                            <button type="button" class="btn btn-danger ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
+                            <button type="button" class="btn btn-danger ml-3" id="btndelete" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
                             Multiple Delete
                             </button>
                     </div>
@@ -648,7 +646,7 @@ else{
                                             ?>
                                             <tr id="box<?php echo $row['studID'];?>">
                                                 <td>
-                                                    <input type="checkbox" id="<?php echo $row['studID'];?>" name="checkbox[]" value="<?php echo $row['studID'];?>"/></td>
+                                                    <input type="checkbox" class="checkbox" id="<?php echo $row['studID'];?>" name="checkbox[]" value="<?php echo $row['studID'];?>"/></td>
                                                 </td>
                                                 <td> 
                                                     <?php echo $row['studNo']; ?>                                 
@@ -879,6 +877,18 @@ include('../includes/scripts.php');
         const message = document.getElementById("#alerts");
         message.remove();
     }
+
+    //disable button when checkbox is unchecked
+    $('#delete').click(function(){
+        //check if checkbox is checked
+        if(($this).is(':checked')){
+            $('#btndelete').removeAttr('disabled'); //enable input
+        }
+        else
+        {
+            $('#btndelete').attr('disabled', true); //disable input
+        }
+    })
 </script>
 
 <script>

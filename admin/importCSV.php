@@ -30,7 +30,7 @@ $mail->Port = 587;
 //end of functions for php mailer
 
 // Allowed mime types
-$csvMimes = array('text/x-comma-separated-values', 'text/comma-separated-values', 'application/octet-stream', 'application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel', 'text/plain');
+$csvMimes = array('text/x-comma-separated-values', 'text/comma-separated-values','application/vnd.ms-excel', 'application/x-csv', 'text/x-csv', 'text/csv', 'application/csv', 'application/excel', 'application/vnd.msexcel');
 //choose file
 $count=0;
 $errorCountEmpty=0;
@@ -127,7 +127,7 @@ $regexAlumni = "/^[\d]{2}[\-][\d]{4}$/";
                                 Email:  $email
                                 </p>
                                 <p>
-                                Password: $password
+                                Password: $p_gen
                                 </p>
                                 <p>
                                 Note: Please use this guide in accessing your account at <a href='www.alumniportal.com'>www.alumniportal.com</a>
@@ -197,7 +197,7 @@ $regexAlumni = "/^[\d]{2}[\-][\d]{4}$/";
 
             if($errorCountExist_stud_no > 0)
             {
-                $_SESSION['exist'] = "<b>" . $errorCountExist_stud_no  . "</b> <i> Entries has an Existing Alumni ID or Student Number Field </i>";
+                $_SESSION['exist'] = "<b>" . $errorCountExist_stud_no  . "</b> <i> Entries has an Existing Alumni ID or Student ID </i>";
                 header('Location: alumni.php?status=exist');
             }
         }
