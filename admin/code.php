@@ -190,43 +190,63 @@ if(isset($_POST['employeeInsert'])){
     $confirmpassword = $_POST['confirmpassword'];
     if($password === $confirmpassword)
     {
-        
-        $pass = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO staff(IdNumber, Username, Password, FirstName, LastName, MiddleName, Email, ContactNumber, BranchId, DepartmentId, AddedDate, userData) 
-        VALUES(
-            '$employeeNo',
-            '$username',
-            '$pass',
-            '$firstname',
-            '$lastname',
-            '$middlename',
-            '$email',
-            '$contact',
-            '$branch',
-            '$department',
-            now(),
-            'Employee'
-        )";
-        
-        $query_run = mysqli_query($connection, $query);
-        if($query_run)
+        $emp_id_checker = $connection->query("SELECT * FROM staff where userData ='Employee' AND IdNumber='".$employeeNo."'");
+        $result_emp_id_checker = $emp_id_checker->num_rows;
+        if($result_emp_id_checker == 0)
         {
-            $email_login= $_SESSION['username'];
-            $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Created an Employee Account: $email',now(),'Employee Account')";
-            $query_run_logs = mysqli_query($connection, $querylogs);
+            $emp_email_checker = $connection->query("SELECT * FROM staff where userData ='Employee' AND email='".$email."'");
+            $result_emp_email_checker = $emp_email_checker->num_rows;
+            if($result_emp_email_checker == 0)
+            {
+                    $pass = password_hash($password, PASSWORD_DEFAULT);
+                    $query = "INSERT INTO staff(IdNumber, Username, Password, FirstName, LastName, MiddleName, Email, ContactNumber, BranchId, DepartmentId, AddedDate, userData) 
+                    VALUES(
+                        '$employeeNo',
+                        '$username',
+                        '$pass',
+                        '$firstname',
+                        '$lastname',
+                        '$middlename',
+                        '$email',
+                        '$contact',
+                        '$branch',
+                        '$department',
+                        now(),
+                        'Employee'
+                    )";
+                    
+                    $query_run = mysqli_query($connection, $query);
+                    if($query_run)
+                    {
+                        $email_login= $_SESSION['username'];
+                        $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Created an Employee Account: $email',now(),'Employee Account')";
+                        $query_run_logs = mysqli_query($connection, $querylogs);
 
-            if($query_run_logs)
-			{
-                $_SESSION['success'] = "Employee Account for ID: <b> ". $employeeNo . " " . $firstname . " " .$middlename . " " . $lastname .  " </b> is Created Successfully!";
+                        if($query_run_logs)
+                        {
+                            $_SESSION['success'] = "Employee Account for ID: <b> ". $employeeNo . " " . $firstname . " " .$middlename . " " . $lastname .  " </b> is Created Successfully!";
+                            header('Location: employee.php');
+                            
+                        }
+                    }
+                    else
+                    {
+                        $_SESSION['status'] = "Error on creation";
+                        header('Location: employee.php');
+                    }
+            }
+            else
+            {
+                $_SESSION['status'] = "<b>" .$email. "</b> email is existing, Please Try Another One!";
                 header('Location: employee.php');
-                
             }
         }
         else
         {
-            $_SESSION['status'] = "Error on creation";
+            $_SESSION['status'] = "<b>Employee No: " .$employeeNo. " </b> is existing, Please Try Another One!";
             header('Location: employee.php');
         }
+        
     }
     else{
         $_SESSION['status'] = "Pasword and Confirm Password Does Not Match";
@@ -340,42 +360,52 @@ if(isset($_POST['employeeInsert1'])){
     $confirmpassword = $_POST['confirmpassword'];
     if($password === $confirmpassword)
     {
-        
-        $pass = password_hash($password, PASSWORD_DEFAULT);
-        $query = "INSERT INTO staff(IdNumber, Username, Password, FirstName, LastName, MiddleName, Email, ContactNumber, BranchId, DepartmentId, AddedDate, userData) 
-        VALUES(
-            '$employeeNo',
-            '$email',
-            '$pass',
-            '$firstname',
-            '$lastname',
-            '$middlename',
-            '$email',
-            '$contact',
-            '$branch',
-            '$department',
-            now(),
-            'Administrator'
-        )";
-        
-        $query_run = mysqli_query($connection, $query);
-        if($query_run)
+        $admin_email_checker = $connection->query("SELECT * FROM staff WHERE userData ='Administrator' AND email ='".$email."'");
+        $row_count_checker = $admin_email_checker->num_rows;
+        if($row_count_checker == 0)
         {
-            $email_login= $_SESSION['username'];
-            $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Created an Admin Account: $email',now(),'Admin Account')";
-            $query_run_logs = mysqli_query($connection, $querylogs);
+            $pass = password_hash($password, PASSWORD_DEFAULT);
+            $query = "INSERT INTO staff(IdNumber, Username, Password, FirstName, LastName, MiddleName, Email, ContactNumber, BranchId, DepartmentId, AddedDate, userData) 
+            VALUES(
+                '$employeeNo',
+                '$email',
+                '$pass',
+                '$firstname',
+                '$lastname',
+                '$middlename',
+                '$email',
+                '$contact',
+                '$branch',
+                '$department',
+                now(),
+                'Administrator'
+            )";
+            
+            $query_run = mysqli_query($connection, $query);
+            if($query_run)
+            {
+                $email_login= $_SESSION['username'];
+                $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Created an Admin Account: $email',now(),'Admin Account')";
+                $query_run_logs = mysqli_query($connection, $querylogs);
 
-            if($query_run_logs)
-			{
-                $_SESSION['success'] = "Admin Account for <b> ". $firstname . " " . $middlename . " " . $lastname . " </b> is Created Successfully!";
-                header('Location: register.php'); 
+                if($query_run_logs)
+                {
+                    $_SESSION['success'] = "Admin Account for <b> ". $firstname . " " . $middlename . " " . $lastname . " </b> is Created Successfully!";
+                    header('Location: register.php'); 
+                }
+            }
+            else
+            {
+                $_SESSION['status'] = "Error on creation";
+                header('Location: register.php');
             }
         }
         else
         {
-            $_SESSION['status'] = "Error on creation";
+            $_SESSION['status'] = "<b>" .$email. "</b> email is existing, Please Try Another One!";
             header('Location: register.php');
         }
+        
     }
     else{
         $_SESSION['status'] = "Pasword and Confirm Password Does Not Match";
@@ -1323,7 +1353,7 @@ if(isset($_POST['deleteJob'])){
     }
 }
 
-
+//checkbox delete of alumni
 $del_count = 0;
 if(isset($_POST['checkbox'][0])){
 	foreach($_POST['checkbox'] as $list){
