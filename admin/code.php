@@ -1357,6 +1357,7 @@ if(isset($_POST['deleteJob'])){
 }
 
 //checkbox delete of alumni
+/*
 $del_count = 0;
 if(isset($_POST['checkbox'][0])){
 	foreach($_POST['checkbox'] as $list){
@@ -1382,6 +1383,36 @@ if(isset($_POST['checkbox'][0])){
                 header('Location: alumni.php');
             }
         }
+}
+*/
+$del_count=0;
+//multiple deletion of row
+if(isset($_POST['delete_row']))
+{
+    $checkArray = $_POST['checkbox'];
+    foreach($checkArray as $id)
+    {
+        $query_mul_delete = "DELETE FROM students WHERE id ='$id'";
+        $query_run_mul_delete = mysqli_query($connection, $query_mul_delete);
+        $del_count++;
+
+        if($query_run_mul_delete)
+        {
+            $email_login= $_SESSION['username'];
+            $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Deleted an Alumni Account $id',now(),'Announcement / Events')";
+            $query_run_logs = mysqli_query($connection, $querylogs);
+            if($query_run_logs)
+                {
+                    $query = "DELETE FROM batch WHERE Name='$id'"; 
+                    $query_run1 = mysqli_query($connection,$query);
+
+                    $query_del_studentforms = "DELETE FROM studentforms where studID ='$id'";
+                    $query_run_del_studentforms = mysqli_query($connection, $query);
+                }
+        }
+    }
+    $_SESSION['success'] = "<b>" .$del_count . "</b> </i> Alumni Data has been Deleted Successfully!</i>";
+    header('Location: alumni.php');
 }
 
 

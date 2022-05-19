@@ -475,6 +475,28 @@ else{
   </div>
 </div> 
 
+<!-- Modal -->
+<div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+     <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="confirmModalLabel">Delete</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                <span aria-hidden="true">&times;</span>
+                </button>
+             </div>
+        <div class="modal-body">
+        <h5>Are you sure you want to delete?</h5>
+            <form action="code.php" method="POST">
+                <input type="hidden" name="delete_id" id="delete_id" value="<?php echo $row['studID']; ?>">
+                    <button type="submit" name="deleteAlumni" class="btn btn-danger"> Yes</button>
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+            </form>
+            </div>
+        </div>
+    </div>
+</div>
+
 
 <div class="container-fluid">
 
@@ -558,15 +580,16 @@ else{
                         ON students.courseGraduated = course.id
                         WHERE courseGraduated !=' ' 
                         AND 
-                        schoolAttended != ' ' ORDER BY studNo DESC";
+                        schoolAttended != ' ' ORDER BY studNo ASC";
                         $query_run = mysqli_query($connection, $query);
                         }
                         
                     ?>
-
+                <form action="code.php" method="POST">
                     <table class="table table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
+                                <th><input type="checkbox" onclick="select_all()" id="delete"></th>
                                 <th>Student Number</th>
                                 <th>Full Name</th>
                                 <th>Course</th>
@@ -584,6 +607,9 @@ else{
                                     {
                                         ?>
                                         <tr>
+                                            <td>
+                                                <input type="checkbox" id="<?php echo $row['studID']; ?>" name="checkbox[]" value ="<?php echo $row['studID']; ?>">
+                                            </td>
                                             <td> 
                                                 <?php echo $row['studNo']; ?>                                 
                                             </td>
@@ -599,6 +625,25 @@ else{
                                             </td>
                                                 
                                             <td>
+                                            <!-- Modal -->
+                                            <div class="modal fade" id="deleteAll" tabindex="-1" role="dialog" aria-labelledby="deleteAllModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="deleteAllModalLabel">Delete</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h5>Are you sure you want to delete?</h5>
+                                                            <input type="submit" id="delete_row" name="delete_row" class="btn btn-danger" value="Yes"></button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                        </form>
+                                                        </div>
+                                                        </div>
+                                                    </div>
+                                                </div>
                                               <?php
                                                     $query = "SELECT * FROM batch WHERE Name=".$row['studID']." order by id desc
                                                     limit 1";
@@ -725,27 +770,6 @@ else{
                                                 <button type="button" class="btn btn-danger delete" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#confirmModal" data-id="<?php echo $row['studID']; ?>">
                                                 <i class="far fa-trash-alt"></i>
                                                 </button>
-                                                <!-- Modal -->
-                                                <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
-                                                    <div class="modal-dialog" role="document">
-                                                        <div class="modal-content">
-                                                        <div class="modal-header">
-                                                            <h5 class="modal-title" id="confirmModalLabel">Delete</h5>
-                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                            <span aria-hidden="true">&times;</span>
-                                                            </button>
-                                                        </div>
-                                                        <div class="modal-body">
-                                                            <h5>Are you sure you want to delete?</h5>
-                                                            <form action="code.php" method="POST">
-                                                                <input type="hidden" name="delete_id" id="delete_id" value="<?php echo $row['studID']; ?>">
-                                                                <button type="submit" name="deleteAlumni" class="btn btn-danger"> Yes</button>
-                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                            </form>
-                                                        </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
                                             </td>
                                         </tr>
                                         <?php
@@ -944,8 +968,20 @@ include('../includes/scripts.php');
 
          else return false;
 
+    }
 
+    //check all function
 
+    function select_all(){
+        if(jQuery('#delete').prop("checked")){
+            jQuery('input[type=checkbox]').each(function(){
+                jQuery('#'+this.id).prop('checked',true);
+            });
+        }else{
+            jQuery('input[type=checkbox]').each(function(){
+                jQuery('#'+this.id).prop('checked',false);
+            });
+        }
     }
 
     
