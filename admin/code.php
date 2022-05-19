@@ -516,7 +516,7 @@ if(isset($_POST['deleteEmployee1'])){
 
 if(isset($_POST['deleteAlumni'])){
     $id = $_POST['delete_id'];
-
+    //deleting of students
     $query = "DELETE FROM students WHERE id='$id' "; 
     $query_run = mysqli_query($connection,$query);
 
@@ -527,9 +527,12 @@ if(isset($_POST['deleteAlumni'])){
         $query_run_logs = mysqli_query($connection, $querylogs);
         if($query_run_logs)
         {
-            $query = "DELETE FROM batch WHERE Name='$id' "; 
-            $query_run1 = mysqli_query($connection,$query);
-        
+            //deleting of batch
+            $query_del_batch = "DELETE FROM batch WHERE Name='$id'"; 
+            $query_run1 = mysqli_query($connection,$query_del_batch);
+            //deleting of studentforms
+            $query_del_studforms = "DELETE FROM studentforms where studID='$id'";
+            $query_run_del_studforms = mysqli_query($connection, $query);
             $_SESSION['success'] = "Alumni Account Successfully Deleted!";
             header('Location: alumni.php');
         }
