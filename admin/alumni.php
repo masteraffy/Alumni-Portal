@@ -431,114 +431,52 @@ else{
 </div>
 
 
-<div class="modal fade" id="bulkUpload" tabindex="-1" role = "dialog"aria-labelledby="exampleModalLabel" aria-hidden="true">
+
+
+
+<div class="modal fade" id="viewProfile" tabindex="-1" role = "dialog"aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg" role = "document">
     <div class="modal-content">
         <div class="modal-header">
-            <h5 class="modal-title" id="exampleModalLabel">Import Alumni Data</h5>
+            <h5 class="modal-title" id="exampleModalLabel">Edit Alumni</h5>
             <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                 <span aria-hidden="true">&times;</span>
             </button>
         </div>
               
-     <div class="modal-body">
-        <div class="row">
-            <div class="col-md-12" id="importFrm">
-                
-                <a href="alumniCSV.csv" download="">Download Sample File</a>
-                <form action="importData.php" method="post" enctype="multipart/form-data">
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Campus:</label>
-                                
-                              <input type="hidden" name="testSchoolIDbulk" id="testSchoolIDbulk" />
-                                <select name="campus" id="schooolDataIDbulk" class="form-control" required >
-                                    <option value="">Select</option>
-                                        <?php
-                                            $query = "SELECT * FROM branch";
-                                            $branch = mysqli_query($connection, $query);
-                                            if(mysqli_num_rows($branch) > 0)
-                                            {
-                                                while($row = mysqli_fetch_assoc($branch))
-                                                {
-                                                    echo $row['Name'];
-                                        ?>
-                                                    <option data-id=<?php echo $row['Id'] ?>><?php echo $row['Name']." - ".$row['Address']?></option>
-                                        <?php
-                                                }
-                                            }
-                                        ?>    
-                                </select>   
-                            </div>
-                                
-                            <div class="col-6">
-                                <label>Course:</label>
-                                <select name="course" class="form-control" required >
-                                    <option value="">Select</option>
-                                    <?php
-                                        $query = "SELECT * FROM course";
-                                        $branch = mysqli_query($connection, $query);
-                                        if(mysqli_num_rows($branch) > 0)
-                                        {
-                                            while($row = mysqli_fetch_assoc($branch))
-                                            {
-                                    ?>
-                                                <option value="<?php echo $row['id']; ?>"><?php echo $row['code']."-".$row['title']; ?></option>
-                                    <?php
-                                            }
-                                        }
-                                    ?>    
-                                </select>   
-                            </div>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <div class="row">
-                            <div class="col-6">
-                                <label>Batch:</label>
-                                <input type="number" name="batch" maxlength = "4"  oninput="javascript: if (this.value.length > this.maxLength) this.value = this.value.slice(0, this.maxLength);"  id="firstname" class="form-control" required  placeholder="Ex: 2022">
-                            </div>
-                                
-                            <div class="col-6">
-                                <label>File:</label>
-                                <input type="file" name="file" />
-                            </div>
-                        </div>
-                    </div>
-                    <input type="submit" class="btn btn-primary float-end m-1" name="importSubmit" value="IMPORT">
-                    <button type="button" class="btn btn-secondary float-end  m-1" data-dismiss="modal">Close</button>
-                </form>
-                <br/>
-                
-            </div>
+    <div class="modal-body">
+    <div class="row">
+        <div class="col-3">
+            <img id="pic" width="150" height="150" />
         </div>
+        <div class="col-9">
+            <h2>Alumni Information</h2>
+            <h5 id="fullname_view"></h5>
+            <h5 id="birthday_view"></h5>
+            <h5 id="gender_view"></h5>
+            <h5 id="address_view"></h5>
+            <hr/>
+            <h2>Contact Details</h2>
+            <h5 id="email_view"></h5>
+            <h5 id="contanct_view"></h5>
+            <hr/>
+            <h2>Alumni History</h2>
+            <h5 id="schoolAttended_view"></h5>
+            <h5 id="course_view"></h5>
+            <h5 id="yeargraduated_view"></h5>
+            <h5 id="currentWork_view"></h5>
+            
+            
+        </div>
+    </div>
+    
     </div>
     </div>
   </div>
-</div>
+</div> 
 
-<div class="modal fade" id="deleteAll" tabindex="-1" role="dialog" aria-labelledby="deleteAll" aria-hidden="true">
-     <div class="modal-dialog" role="document">
-       <div class="modal-content">
-            <div class="modal-header">
-                <h5 class="modal-title" id="deleteAll">Delete</h5>
-                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">&times;</span>
-                    </button>
-            </div>
-
-            <div class="modal-body">
-                <h5>Are you sure you want to delete?</h5>
-                    <button type="submit" name="deleteAlumni" class="btn btn-danger" data-dismiss="modal" onclick="delete_all() "> Yes</button>
-                    <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-             </div>
-        </div>
-    </div>
-</div>
 
 <div class="container-fluid">
-    
 
     <div class = "card shadow mb-4">
             <div class = "card-header py-3">
@@ -548,12 +486,14 @@ else{
                             <form action="importCSV.php" method="POST" enctype="multipart/form-data">
                                 <input type="file" name="uploadfile" onchange="this.form.submit();" value="Bulk Upload Alumni"
                                  id="bulk" class="form-control" style="<?php echo "display:".$display ?>"
-                                 accept="application/vnd.msexcel, text/comma-separated-values, text/csv">
+                                 accept="text/x-comma-separated-values, text/comma-separated-values, application/octet-stream, 
+                                 application/vnd.ms-excel, application/x-csv, text/x-csv, text/csv, application/csv,
+                                  application/excel, application/vnd.msexcel">
                             </form>                
                             <button type="button" class="btn btn-primary ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#addadminprofile">
                                 Add Alumni
                             </button>
-                            <button type="button" class="btn btn-danger ml-3" id="btndelete" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
+                            <button type="button" class="btn btn-danger ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
                             Multiple Delete
                             </button>
                     </div>
@@ -589,9 +529,9 @@ else{
                         echo '<div class="alert alert-danger"> '.$_SESSION['regex'].' </div>';
                         unset($_SESSION['regex']); 
                     }
-                ?>
 
-                <div id="alerts"></div>
+
+                ?>
                 <div class= "table-responsive">
 
                     <?php
@@ -623,106 +563,43 @@ else{
                         }
                         
                     ?>
-                <form method="post" id="frm">
-                    <table class="table table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
-                            <thead>
-                                <tr>
-                                    <th ><input type="checkbox" onclick="select_all()"  id="delete"/></th>
-                                    <th>Student Number</th>
-                                    <th>Full Name</th>
-                                    <th>Course</th>
-                                    <th>Branch Graduated</th>
-                                    <th>Batch</th>
-                                    <th>Actions</th>
-                                    
-                                </tr>
-                            </thead>
-                            <tbody>
-                                <?php
-                                    if(mysqli_num_rows($query_run) > 0)
-                                    {
-                                        while($row = mysqli_fetch_assoc($query_run))
-                                        {
-                                            ?>
-                                            <tr id="box<?php echo $row['studID'];?>">
-                                                <td>
-                                                    <input type="checkbox" class="checkbox" id="<?php echo $row['studID'];?>" name="checkbox[]" value="<?php echo $row['studID'];?>"/></td>
-                                                </td>
-                                                <td> 
-                                                    <?php echo $row['studNo']; ?>                                 
-                                                </td>
-                                                <td> 
-                                                    <?php echo $row['firstname']." ".$row['middleName']." ".$row['lastname']; ?>                                 
-                                                </td>
-                                                <td>
-                                                    <?php echo $row['title']; ?>
-                                                </td>
 
-                                                <td>
-                                                    <?php echo $row['schoolAttended']; ?>
-                                                </td>
-                                                    
-                                                <td>
-                                                <?php
-                                                        $query = "SELECT * FROM batch WHERE Name=".$row['studID']." order by id desc
-                                                        limit 1";
-                                                        $querybatch = mysqli_query($connection, $query);
-                                                        $batch = mysqli_fetch_array($querybatch);
-                                                        $row_cnt = mysqli_num_rows($querybatch);
-                                                        if($row_cnt > 0)
-                                                            if(!$batch['Description']){
-                                                                echo "--";
-                                                            }
-                                                            else{
-                                                                echo $batch['Description'];
-                                                            }
-                                                        else{
-                                                            echo "--";
-                                                        }
-                                                    ?>
-                                                </td>
-                                                <td>
-                                                <a 
-                                                    data-id="<?php echo $row['studID']; ?>"
-                                                    data-photo="<?php echo $row['photo']; ?>"
-                                                    data-fname="<?php echo $row['firstname']; ?>"
-                                                    data-mname="<?php echo $row['middleName']; ?>"
-                                                    data-lname="<?php echo $row['lastname']; ?>"
-                                                    data-gender="<?php echo $row['gender']; ?>"
-                                                    data-birthday="<?php echo $row['birthday']; ?>"
-                                                    data-email="<?php echo $row['email']; ?>"
-                                                    data-contact="<?php echo $row['contact']; ?>"
-                                                    data-address="<?php echo $row['address']; ?>"
-                                                    data-school="<?php echo $row['schoolAttended']; ?>"
-                                                    data-course="<?php echo $row['courseGraduated']; ?>"
-                                                    data-pass="<?php echo $row['password']; ?>"
-                                                    data-studNo="<?php echo $row['studNo']; ?>"
-                                                    data-studStatus="<?php echo $row['studStatus']; ?>"
-                                                    data-studDes="<?php echo $row['studDes']; ?>"
-                                                    data-studOR="<?php echo $row['studOR']; ?>"
-                                                    data-studDate="<?php echo $row['studDate']; ?>"
-                                                    data-studRemarks="<?php echo $row['studRemarks']; ?>"
-                                                    data-currentwork="<?php echo $row['CurrentWork']; ?>"
-                                                    data-coursetitle="<?php
-                                                    if($row['courseGraduated'] != "" || $row['courseGraduated'] != NULL)
-                                                    {
-                                                        $query = "SELECT * FROM course WHERE id=".$row['courseGraduated']."";
-                                                        $queryc = mysqli_query($connection, $query);
-                                                        $c = mysqli_fetch_array($queryc);
-                                                        // echo $c['title'];
-                                                        $row_cnt = mysqli_num_rows($queryc);
-                                                        if($row_cnt > 0){
-                                                            echo $c['title'];
-                                                        }
-                                                        else{
-                                                            echo "--";
-                                                        }
-                                                    }
-                                                    else{
-                                                        echo "--";
-                                                    }
-                                                    ?>"
-                                                    data-yeargraduated="<?php
+                    <table class="table table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr>
+                                <th>Student Number</th>
+                                <th>Full Name</th>
+                                <th>Course</th>
+                                <th>Branch Graduated</th>
+                                <th>Batch</th>
+                                <th>Actions</th>
+                                
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <?php
+                                if(mysqli_num_rows($query_run) > 0)
+                                {
+                                    while($row = mysqli_fetch_assoc($query_run))
+                                    {
+                                        ?>
+                                        <tr>
+                                            <td> 
+                                                <?php echo $row['studNo']; ?>                                 
+                                            </td>
+                                            <td> 
+                                                <?php echo $row['firstname']." ".$row['middleName']." ".$row['lastname']; ?>                                 
+                                            </td>
+                                            <td>
+                                                <?php echo $row['title']; ?>
+                                            </td>
+
+                                            <td>
+                                                 <?php echo $row['schoolAttended']; ?>
+                                            </td>
+                                                
+                                            <td>
+                                              <?php
                                                     $query = "SELECT * FROM batch WHERE Name=".$row['studID']." order by id desc
                                                     limit 1";
                                                     $querybatch = mysqli_query($connection, $query);
@@ -738,92 +615,149 @@ else{
                                                     else{
                                                         echo "--";
                                                     }
-                                                    ?>"
-                                                    class="btn btn-success view_btn"  href="viewProfile.php?id=<?php echo $row['studID']; ?>"><i class="far fa-eye"></i></a>
-                                                
-                                                    <button 
-                                                    data-id="<?php echo $row['studID']; ?>"
-                                                    data-interest="<?php echo $row['interest']; ?>"
-                                                    data-fname="<?php echo $row['firstname']; ?>"
-                                                    data-mname="<?php echo $row['middleName']; ?>"
-                                                    data-lname="<?php echo $row['lastname']; ?>"
-                                                    data-gender="<?php echo $row['gender']; ?>"
-                                                    data-birthday="<?php echo $row['birthday']; ?>"
-                                                    data-email="<?php echo $row['email']; ?>"
-                                                    data-contact="<?php echo $row['contact']; ?>"
-                                                    data-address="<?php echo $row['address']; ?>"
-                                                    data-school="<?php echo $row['schoolAttended']; ?>"
-                                                    data-course="<?php echo $row['courseGraduated']; ?>"
-                                                    data-pass="<?php echo $row['password']; ?>"
-                                                    data-studNo="<?php echo $row['studNo']; ?>"
-                                                    data-studStatus="<?php echo $row['studStatus']; ?>"
-                                                    data-studDes="<?php echo $row['studDes']; ?>"
-                                                    data-studOR="<?php echo $row['studOR']; ?>"
-                                                    data-studDate="<?php echo $row['studDate']; ?>"
-                                                    data-studRemarks="<?php echo $row['studRemarks']; ?>"
-                                                    data-currentwork="<?php echo $row['CurrentWork']; ?>"
-                                                    data-coursetitle="<?php
-                                                    if($row['courseGraduated'] != "" || $row['courseGraduated'] != NULL  ){
+                                                ?>
+                                            </td>
+                                            <td>
+                                            <a 
+                                                data-id="<?php echo $row['studID']; ?>"
+                                                data-photo="<?php echo $row['photo']; ?>"
+                                                data-fname="<?php echo $row['firstname']; ?>"
+                                                data-mname="<?php echo $row['middleName']; ?>"
+                                                data-lname="<?php echo $row['lastname']; ?>"
+                                                data-gender="<?php echo $row['gender']; ?>"
+                                                data-birthday="<?php echo $row['birthday']; ?>"
+                                                data-email="<?php echo $row['email']; ?>"
+                                                data-contact="<?php echo $row['contact']; ?>"
+                                                data-address="<?php echo $row['address']; ?>"
+                                                data-school="<?php echo $row['schoolAttended']; ?>"
+                                                data-course="<?php echo $row['courseGraduated']; ?>"
+                                                data-pass="<?php echo $row['password']; ?>"
+                                                data-studNo="<?php echo $row['studNo']; ?>"
+                                                data-studStatus="<?php echo $row['studStatus']; ?>"
+                                                data-studDes="<?php echo $row['studDes']; ?>"
+                                                data-studOR="<?php echo $row['studOR']; ?>"
+                                                data-studDate="<?php echo $row['studDate']; ?>"
+                                                data-studRemarks="<?php echo $row['studRemarks']; ?>"
+                                                data-currentwork="<?php echo $row['CurrentWork']; ?>"
+                                                data-coursetitle="<?php
+                                                if($row['courseGraduated'] != "" || $row['courseGraduated'] != NULL)
+                                                {
                                                     $query = "SELECT * FROM course WHERE id=".$row['courseGraduated']."";
-                                                
                                                     $queryc = mysqli_query($connection, $query);
                                                     $c = mysqli_fetch_array($queryc);
-                                                    echo $c['title'];
+                                                    // echo $c['title'];
+                                                    $row_cnt = mysqli_num_rows($queryc);
+                                                    if($row_cnt > 0){
+                                                        echo $c['title'];
                                                     }
                                                     else{
-                                                        echo "Select";
+                                                        echo "--";
                                                     }
-                                                    ?>"
-                                                    data-yeargraduated="<?php
-                                                    $query = "SELECT * FROM batch WHERE Name=".$row['studID']." order by id desc
-                                                    limit 1";
-                                                    $querybatch = mysqli_query($connection, $query);
-                                                    $batch = mysqli_fetch_array($querybatch);
-                                                    echo $batch['Description'];
-                                                    ?>"
-                                                    class="btn btn-success edit_btn" style="<?php echo "display:".$display ?>"  data-toggle="modal" data-target="#updateadminprofile"> 
-                                                    <i class="fas fa-edit"></i>
+                                                }
+                                                else{
+                                                    echo "--";
+                                                }
+                                                ?>"
+                                                data-yeargraduated="<?php
+                                                $query = "SELECT * FROM batch WHERE Name=".$row['studID']." order by id desc
+                                                limit 1";
+                                                $querybatch = mysqli_query($connection, $query);
+                                                $batch = mysqli_fetch_array($querybatch);
+                                                $row_cnt = mysqli_num_rows($querybatch);
+                                                if($row_cnt > 0)
+                                                    if(!$batch['Description']){
+                                                        echo "--";
+                                                    }
+                                                    else{
+                                                        echo $batch['Description'];
+                                                    }
+                                                else{
+                                                    echo "--";
+                                                }
+                                                ?>"
+                                                class="btn btn-success view_btn"  href="viewProfile.php?id=<?php echo $row['studID']; ?>"><i class="far fa-eye"></i></a>
+                                             
+                                                <button 
+                                                data-id="<?php echo $row['studID']; ?>"
+                                                data-interest="<?php echo $row['interest']; ?>"
+                                                data-fname="<?php echo $row['firstname']; ?>"
+                                                data-mname="<?php echo $row['middleName']; ?>"
+                                                data-lname="<?php echo $row['lastname']; ?>"
+                                                data-gender="<?php echo $row['gender']; ?>"
+                                                data-birthday="<?php echo $row['birthday']; ?>"
+                                                data-email="<?php echo $row['email']; ?>"
+                                                data-contact="<?php echo $row['contact']; ?>"
+                                                data-address="<?php echo $row['address']; ?>"
+                                                data-school="<?php echo $row['schoolAttended']; ?>"
+                                                data-course="<?php echo $row['courseGraduated']; ?>"
+                                                data-pass="<?php echo $row['password']; ?>"
+                                                data-studNo="<?php echo $row['studNo']; ?>"
+                                                data-studStatus="<?php echo $row['studStatus']; ?>"
+                                                data-studDes="<?php echo $row['studDes']; ?>"
+                                                data-studOR="<?php echo $row['studOR']; ?>"
+                                                data-studDate="<?php echo $row['studDate']; ?>"
+                                                data-studRemarks="<?php echo $row['studRemarks']; ?>"
+                                                data-currentwork="<?php echo $row['CurrentWork']; ?>"
+                                                data-coursetitle="<?php
+                                                if($row['courseGraduated'] != "" || $row['courseGraduated'] != NULL  ){
+                                                $query = "SELECT * FROM course WHERE id=".$row['courseGraduated']."";
+                                            
+                                                $queryc = mysqli_query($connection, $query);
+                                                $c = mysqli_fetch_array($queryc);
+                                                echo $c['title'];
+                                                }
+                                                else{
+                                                    echo "Select";
+                                                }
+                                                ?>"
+                                                data-yeargraduated="<?php
+                                                $query = "SELECT * FROM batch WHERE Name=".$row['studID']." order by id desc
+                                                limit 1";
+                                                $querybatch = mysqli_query($connection, $query);
+                                                $batch = mysqli_fetch_array($querybatch);
+                                                echo $batch['Description'];
+                                                ?>"
+                                                class="btn btn-success edit_btn" style="<?php echo "display:".$display ?>"  data-toggle="modal" data-target="#updateadminprofile"> 
+                                                <i class="fas fa-edit"></i>
+                                            </button>
+                                                
+                                                
+                                                <button type="button" class="btn btn-danger delete" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#confirmModal" data-id="<?php echo $row['studID']; ?>">
+                                                <i class="far fa-trash-alt"></i>
                                                 </button>
-                                                    
-                                                    
-                                                    <button type="button" class="btn btn-danger delete" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#confirmModal" data-id="<?php echo $row['studID']; ?>">
-                                                    <i class="far fa-trash-alt"></i>
-                                                    </button>
-                                                    <!-- Modal -->
-                                                    <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
-                                                        <div class="modal-dialog" role="document">
-                                                            <div class="modal-content">
-                                                            <div class="modal-header">
-                                                                <h5 class="modal-title" id="confirmModalLabel">Delete</h5>
-                                                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                                                <span aria-hidden="true">&times;</span>
-                                                                </button>
-                                                            </div>
-                                                            <div class="modal-body">
-                                                                <h5>Are you sure you want to delete?</h5>
-                                                                <form action="code.php" method="POST">
-                                                                    <input type="hidden" name="delete_id" id="delete_id" value="<?php echo $row['studID']; ?>">
-                                                                    <button type="submit" name="deleteAlumni" class="btn btn-danger"> Yes</button>
-                                                                <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
-                                                                </form>
-                                                            </div>
-                                                            </div>
+                                                <!-- Modal -->
+                                                <div class="modal fade" id="confirmModal" tabindex="-1" role="dialog" aria-labelledby="confirmModalLabel" aria-hidden="true">
+                                                    <div class="modal-dialog" role="document">
+                                                        <div class="modal-content">
+                                                        <div class="modal-header">
+                                                            <h5 class="modal-title" id="confirmModalLabel">Delete</h5>
+                                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                            <span aria-hidden="true">&times;</span>
+                                                            </button>
+                                                        </div>
+                                                        <div class="modal-body">
+                                                            <h5>Are you sure you want to delete?</h5>
+                                                            <form action="code.php" method="POST">
+                                                                <input type="hidden" name="delete_id" id="delete_id" value="<?php echo $row['studID']; ?>">
+                                                                <button type="submit" name="deleteAlumni" class="btn btn-danger"> Yes</button>
+                                                            <button type="button" class="btn btn-secondary" data-dismiss="modal">No</button>
+                                                            </form>
+                                                        </div>
                                                         </div>
                                                     </div>
-                                                </td>
-                                            </tr>
-                                            <?php
-                                        }
+                                                </div>
+                                            </td>
+                                        </tr>
+                                        <?php
                                     }
-                                    else
-                                    {
-                                        echo "No Record Found";
-                                    }
-                                ?>                
-                            </tbody>
-                        </table>
-                </form>
-                    
+                                }
+                                else
+                                {
+                                    echo "No Record Found";
+                                }
+                            ?>                
+                        </tbody>
+                    </table>
                 </div>
             </div>
     </div>
@@ -834,63 +768,6 @@ else{
 include('../includes/footer.php'); 
 include('../includes/scripts.php');    
 ?>
-<!--Select All Function-->
-
-<script>
-    function select_all(){
-        if(jQuery('#delete').prop("checked")){
-            jQuery('input[type=checkbox]').each(function(){
-                jQuery('#'+this.id).prop('checked',true);
-            });
-        }else{
-            jQuery('input[type=checkbox]').each(function(){
-                jQuery('#'+this.id).prop('checked',false);
-            });
-        }
-    }
-
-    function delete_all(){
-                jQuery.ajax({
-                    url:'code.php',
-                    type:'post',
-                    data:jQuery('#frm').serialize(),
-                    success:function(result){
-                        jQuery('input[type=checkbox]').each(function(){
-                            if(jQuery('#'+this.id).prop("checked")){
-                                jQuery('#box'+this.id).remove();
-                            }
-                        });
-                        
-                    } 
-                }); alertMessage('Multiple Data has been Deleted Successfully!');
-            
-    }
-
-    function alertMessage(message) {
-        $('#alerts').append(
-            '<div class="alert alert-success">' + message + '</div>'
-        );
-        
-    }
-
-    function clearMessage(){
-        const message = document.getElementById("#alerts");
-        message.remove();
-    }
-
-    //disable button when checkbox is unchecked
-    $('#delete').click(function(){
-        //check if checkbox is checked
-        if(($this).is(':checked')){
-            $('#btndelete').removeAttr('disabled'); //enable input
-        }
-        else
-        {
-            $('#btndelete').attr('disabled', true); //disable input
-        }
-    })
-</script>
-
 <script>
     $(document).ready(function(){
         $(".edit_btn").click(function(){

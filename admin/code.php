@@ -535,95 +535,103 @@ if(isset($_POST['alumniInsert'])){
     $yearGraduated=$_POST['yeargraduated'];
     if($random)
     {
-        
         $pass = password_hash($random, PASSWORD_DEFAULT);
         
+        $alumni_id_checker = $connection->query("SELECT * FROM students where email ='".$email."'");
+        $row_cnt_email = $alumni_id_checker->num_rows;
+        if($row_cnt_email == 0)
+        {
+            $survey = $connection->query("SELECT * FROM students WHERE studNo ='".$studNo."'");
+            $row_cnt = $survey->num_rows;
+            print_r($row_cnt);
+            if($row_cnt == 0){
+                $query = "INSERT INTO students
+                (id, firstname, middleName, lastname, photo, gender, birthday, email, contact, socMed, interest, schoolAttended, CurrentWork, courseGraduated, created_on, password, address,studNo,studStatus, studDes, studOR, studDate,studRemarks)
+                VALUES(null,'$firstname','$middlename','$lastname', ' ', '$gender','$birthday', '$email', '$contact', ' ', '$testSchoolID', '$schoolAttended', '$currentWork', '$course',NOW(),'$pass','$address','$studNo','$studStatus','$studDes','$studOR',NOW(),'$studRemarks')";
+                $query_run = mysqli_query($connection, $query);
+                if($query_run)
+                {
                     
-        $survey = $connection->query("SELECT * FROM students WHERE studNo ='".$studNo."'");
-        $row_cnt = $survey->num_rows;
-        print_r($row_cnt);
-        if($row_cnt == 0){
-            $query = "INSERT INTO students
-            (id, firstname, middleName, lastname, photo, gender, birthday, email, contact, socMed, interest, schoolAttended, CurrentWork, courseGraduated, created_on, password, address,studNo,studStatus, studDes, studOR, studDate,studRemarks)
-            VALUES(null,'$firstname','$middlename','$lastname', ' ', '$gender','$birthday', '$email', '$contact', ' ', '$testSchoolID', '$schoolAttended', '$currentWork', '$course',NOW(),'$pass','$address','$studNo','$studStatus','$studDes','$studOR',NOW(),'$studRemarks')";
-            $query_run = mysqli_query($connection, $query);
-            if($query_run)
-            {
+                    $last_id = mysqli_insert_id($connection);            
+                    //checker
+                    $query = "SELECT * FROM batch WHERE Name  = '$last_id' ";
+                    $batchChecker = mysqli_query($connection, $query);
+                    if(mysqli_num_rows($batchChecker) == 0){
+                        $email_login= $_SESSION['username'];
+                        $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Created an Alumni Account: $email',now(),'Admin Account')";
+                        $query_run_logs = mysqli_query($connection, $querylogs);
                 
-                $last_id = mysqli_insert_id($connection);            
-                //checker
-                $query = "SELECT * FROM batch WHERE Name  = '$last_id' ";
-                $batchChecker = mysqli_query($connection, $query);
-                if(mysqli_num_rows($batchChecker) == 0){
-                    $email_login= $_SESSION['username'];
-                    $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Created an Alumni Account: $email',now(),'Admin Account')";
-                    $query_run_logs = mysqli_query($connection, $querylogs);
-            
-                    if($query_run_logs)
-                    {
+                        if($query_run_logs)
+                        {
 
-                        $sqlBatch = "INSERT INTO `batch`(`Id`, `Name`, `Description`, `AddedDate`) VALUES (null,$last_id,$yearGraduated,now())";
-                        $result1 = mysqli_query($connection, $sqlBatch);
+                            $sqlBatch = "INSERT INTO `batch`(`Id`, `Name`, `Description`, `AddedDate`) VALUES (null,$last_id,$yearGraduated,now())";
+                            $result1 = mysqli_query($connection, $sqlBatch);
+                        }
+                    } 
+                    else{
+            
+                        
+                        $email_login= $_SESSION['username'];
+                        $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Created an Alumni Account: $email',now(),'Admin Account')";
+                        $query_run_logs = mysqli_query($connection, $querylogs);
+                
+                        if($query_run_logs)
+                        {
+
+                            $row = mysqli_fetch_assoc($batchChecker);
+                            $checker = $row['Id'];
+                            $sqlBatch = "UPDATE `batch` SET `Description` = '$yearGraduated' WHERE `batch`.`Name` = $checker";
+                            $result1 = mysqli_query($connection, $sqlBatch);
+                        }
                     }
-                } 
-                else{
-        
-                    
-                    $email_login= $_SESSION['username'];
-                    $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Created an Alumni Account: $email',now(),'Admin Account')";
-                    $query_run_logs = mysqli_query($connection, $querylogs);
-            
-                    if($query_run_logs)
-                    {
+                    $_SESSION['success'] = "Alumni Account Successfully Created!";
+                    $mail->From = "arellano.alumnisd@gmail.com";
+                    $mail->FromName = "Arellano Alumni";
 
-                        $row = mysqli_fetch_assoc($batchChecker);
-                        $checker = $row['Id'];
-                        $sqlBatch = "UPDATE `batch` SET `Description` = '$yearGraduated' WHERE `batch`.`Name` = $checker";
-                        $result1 = mysqli_query($connection, $sqlBatch);
+                    $mail->addAddress("$email", "$firstname $middlename $lastname");
+                    $mail->isHTML(true);
+                    $mail->Subject = "Alumni Invitation";
+                    $mail->Body = "<div>
+                            <p>
+                            We are inviting you to use our Alumni Portal as being part of Arellano University Alumni Student.
+                        
+                            </p><p>
+                        Here is your account details:
+                        </p><p>
+                        Email:  $email
+                        </p>
+                        <p>
+                        Password: $random
+                        </p>
+                        <p>
+                        Note: Please use this guide in accessing your account at <a href='www.alumniportal.com'>www.alumniportal.com</a>
+                        After logging in, please do answer the necessary information, to help us in tracing.
+                        </p>
+                        <p>Thanks in advance</p>
+                        Arellano Alumni Service Department 
+                        </div>";
+                    try {
+                        $mail->send();
+                        header('Location: alumni.php');
+                    } catch (Exception $e) {
+                        echo "Mailer Error: " . $mail->ErrorInfo;
                     }
                 }
-                $_SESSION['success'] = "Alumni Account Successfully Created!";
-                $mail->From = "arellano.alumnisd@gmail.com";
-                $mail->FromName = "Arellano Alumni";
-
-                $mail->addAddress("$email", "$firstname $middlename $lastname");
-                $mail->isHTML(true);
-                $mail->Subject = "Alumni Invitation";
-                $mail->Body = "<div>
-                        <p>
-                        We are inviting you to use our Alumni Portal as being part of Arellano University Alumni Student.
-                    
-                        </p><p>
-                    Here is your account details:
-                    </p><p>
-                    Email:  $email
-                    </p>
-                    <p>
-                    Password: $random
-                    </p>
-                    <p>
-                    Note: Please use this guide in accessing your account at <a href='www.alumniportal.com'>www.alumniportal.com</a>
-                    After logging in, please do answer the necessary information, to help us in tracing.
-                    </p>
-                    <p>Thanks in advance</p>
-                    Arellano Alumni Service Department 
-                    </div>";
-                try {
-                    $mail->send();
+                else
+                {
+                    $_SESSION['status'] = "Alumni Account Creation Unsuccessful!";
                     header('Location: alumni.php');
-                } catch (Exception $e) {
-                    echo "Mailer Error: " . $mail->ErrorInfo;
                 }
             }
             else
             {
-                $_SESSION['status'] = "Alumni Account Creation Unsuccessful!";
+                $_SESSION['status'] = "Alumni Account is Existing!";
                 header('Location: alumni.php');
             }
-        }
+        }           
         else
         {
-            $_SESSION['status'] = "Alumni Account is Existing!";
+            $_SESSION['status'] = "<b>" .$email . "</b> email is Already Existing!";
             header('Location: alumni.php');
         }
     }

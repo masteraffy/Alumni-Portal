@@ -111,6 +111,7 @@
             </div>
 
             <div class="form-input">
+            <span><i class="fa fa-envelope-o"></i></span>
               <?php if (isset($_GET['email'])) { ?>
               <input type="email" name="email" value="<?php echo $_GET['email']; ?>"placeholder="Email Address" tabindex="10" required>
               <?php }else{ ?>

@@ -69,12 +69,16 @@
 
 	else{
 
-		$pass = password_hash($pass, PASSWORD_DEFAULT);
+		$stud_id_checker = $connection->query("SELECT * FROM students WHERE studNo ='".$studno."'");
+		$row_count_studID = $stud_id_checker->num_rows;
+		if($row_count_studID == 0)
+		{
+			$pass = password_hash($pass, PASSWORD_DEFAULT);
 	    $sql = "SELECT * FROM students WHERE email='$email' ";
 		$result = mysqli_query($connection, $sql);
 
 		if (mysqli_num_rows($result) > 0) {
-			header("Location: user_registration.php?error=The is already exists please try another email&$user_data");
+			header("Location: user_registration.php?error=  Your Email is already existing, Please Contact the Administrator!&$user_data");
 	        exit();
 		}else {
            $sql2 = "INSERT INTO students(id, firstname, middleName, lastname, photo, gender, birthday, email, contact, socMed, interest, schoolAttended, CurrentWork, courseGraduated, created_on, password, address, studNo) VALUES(null,'$firstname','$middlename','$lastname', ' ', '$gender','$birthday', '$email', '$contact', '-', ' ', ' ', ' ', ' ','now()','$pass','$address','$studno')";
@@ -100,6 +104,13 @@
 			   var_dump($sql2);
            }
 		}
+		}
+		else
+		{
+			header("Location: user_registration.php?error=  Your Student Number is Already Existing!, Please Contact the Administrator!&$user_data");
+	        exit();
+		}
+		
 	}
 	
 }
