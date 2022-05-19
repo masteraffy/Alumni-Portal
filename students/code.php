@@ -87,7 +87,7 @@ if(isset($_POST['postContent'])){
                 if($updateq)
                 {
 
-                    $_SESSION['success'] = "Successfully Created";
+                    $_SESSION['notification'] = "Successfully Created";
                     echo $update;
                     header('Location: home.php');
                 }

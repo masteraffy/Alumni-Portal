@@ -419,7 +419,7 @@
     </script>
 
     <?php
-        if(isset($_SESSION['success']) && $_SESSION['success']!='')
+        if(isset($_SESSION['notification']) && $_SESSION['notification']!='')
         {
         ?>
         <script>
@@ -431,7 +431,7 @@
         });
         </script>
         <?php
-         unset($_SESSION['success']);
+         unset($_SESSION['notification']);
         }
     ?>
 
