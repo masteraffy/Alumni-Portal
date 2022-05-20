@@ -331,6 +331,10 @@ if(isset($_POST['deleteEmployee'])){
         $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Deleted an Employee Account Id: $id',now(),'Employee Account')";
         $query_run_logs = mysqli_query($connection, $querylogs);
 
+        //deleting of content posted of employee usertype
+        $query_del_emp_content_post = "DELETE FROM events where UserType='Employee' AND CreatedUser='$id'";
+        $query_run_del_emp_content_post = mysqli_query($connection, $query_del_emp_content_post);
+
         if($query_run_logs)
         {
             $_SESSION['success'] = "Employee <b> ID: " . $emp_no . " " . $emp_name . "</b> is Successfully Deleted!";
@@ -490,6 +494,10 @@ if(isset($_POST['deleteEmployee1'])){
             $email_login= $_SESSION['username'];
             $querylogs = "INSERT INTO logs (user,movement,movement_date,log_type) VALUES ('$email_login','User Deleted an Admin Account: $id',now(),'Admin Account')";
             $query_run_logs = mysqli_query($connection, $querylogs);
+
+            //deleting of content post of admin
+            $query_del_admin_content_post = "DELETE FROM events WHERE UserType ='Administrator' AND CreatedUser ='$id'";
+            $query_run_del_admin_content_post = mysqli_query($connection, $query_del_admin_content_post);
     
             if($query_run_logs)
             {
@@ -533,6 +541,9 @@ if(isset($_POST['deleteAlumni'])){
             //deleting of studentforms
             $query_del_studforms = "DELETE FROM studentforms where studID='$id'";
             $query_run_del_studforms = mysqli_query($connection, $query);
+            //deleting of contentposted
+            $query_del_content_post = "DELETE FROM events WHERE Usertype='Alumni' AND CreatedUser='$id'";
+            $query_run_del_content_post = mysqli_query($connection, $$query_del_content_post);
             $_SESSION['success'] = "Alumni Account Successfully Deleted!";
             header('Location: alumni.php');
         }
@@ -1090,7 +1101,7 @@ if(isset($_POST['contentsInsert'])){
     $Title=$_POST['Title'];
     $Subtitle=$_POST['Subtitle'];
     $Description=$_POST['Description'];
-    $user=$_SESSION['Full_Name'];
+    $user=$_SESSION['UserId'];
     $userData=$_POST['userData'];
     $file=$_POST['file'];
     $date = date('Ymd');
@@ -1181,7 +1192,7 @@ if(isset($_POST['contentUpdate'])){
     $Title=$_POST['Title'];
     $Subtitle=$_POST['Subtitle'];
     $Description=$_POST['Description'];
-    $user=$_POST['user'];
+    $user=$_SESSION['UserId'];
     $userData=$_POST['userData'];
     $file=$_POST['file'];
     $file = $_FILES['file']['name'];

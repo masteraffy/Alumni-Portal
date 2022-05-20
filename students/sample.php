@@ -257,7 +257,7 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="validationCustom10" class="form-label">Major<span class="text-danger"></span></label>
-                            <input type="text" name="major" class="form-control" id="validationCustom10" placeholder="Pleae Input your Major if non leave blank" >
+                            <input type="text" name="major" class="form-control" id="validationCustom10" placeholder="Please Input your Major If None Leave It Blank!" >
                           
                         </div> 
                         <div class="mb-3 col-6">
@@ -286,7 +286,7 @@
                         </div>
                         <div class="mb-3 col-md-6">
                             <label for="validationCustom05" class="form-label">Year Graduated<span class="text-danger"></span></label>
-                            <input type="text" required value="<?php echo $batch['Description']; ?>" name="yeargraduated" id="validationCustom05" class="form-control" placeholder="Example: 2021, 2022" >
+                            <input type="text" required value="<?php echo $batch['Description']; ?>" name="yeargraduated" id="validationCustom05" class="form-control" placeholder="Ex: 2022" >
                             <div class="invalid-feedback">
                                 This field is Required!
                             </div>
