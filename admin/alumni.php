@@ -515,7 +515,7 @@ else{
                             <button type="button" class="btn btn-primary ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#addadminprofile">
                                 Add Alumni
                             </button>
-                            <button type="button" class="btn btn-danger ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
+                            <button type="button" id="del" disabled="disabled" class="btn btn-danger ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
                             Multiple Delete
                             </button>
                     </div>
@@ -589,7 +589,7 @@ else{
                     <table class="table table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th><input type="checkbox" onclick="select_all()" id="delete"></th>
+                                <th><input type="checkbox" class="checkboxtop" onclick="select_all()" id="delete"></th>
                                 <th>Student Number</th>
                                 <th>Full Name</th>
                                 <th>Course</th>
@@ -608,7 +608,7 @@ else{
                                         ?>
                                         <tr>
                                             <td>
-                                                <input type="checkbox" id="<?php echo $row['studID']; ?>" name="checkbox[]" value ="<?php echo $row['studID']; ?>">
+                                                <input type="checkbox" class="checkbox" id="<?php echo $row['studID']; ?>" name="checkbox[]" value ="<?php echo $row['studID']; ?>">
                                             </td>
                                             <td> 
                                                 <?php echo $row['studNo']; ?>                                 
@@ -983,6 +983,19 @@ include('../includes/scripts.php');
             });
         }
     }
+
+
+ $(function() {
+    $(".checkbox").click(function(){
+        $('#del').prop('disabled',$('input.checkbox:checked').length == 0);
+    });
+});
+
+$(function() {
+    $(".checkboxtop").click(function(){
+        $('#del').prop('disabled',$('input.checkbox:checked').length == 0);
+    });
+});
 
     
 </script>
