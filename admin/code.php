@@ -540,10 +540,10 @@ if(isset($_POST['deleteAlumni'])){
             $query_run1 = mysqli_query($connection,$query_del_batch);
             //deleting of studentforms
             $query_del_studforms = "DELETE FROM studentforms where studID='$id'";
-            $query_run_del_studforms = mysqli_query($connection, $query);
+            $query_run_del_studforms = mysqli_query($connection, $query_del_studforms);
             //deleting of contentposted
-            $query_del_content_post = "DELETE FROM events WHERE Usertype='Alumni' AND CreatedUser='$id'";
-            $query_run_del_content_post = mysqli_query($connection, $$query_del_content_post);
+            $query_del_content_post = "DELETE FROM events where CreatedUser='$id'";
+            $query_run_del_contentpost = mysqli_query($connection, $query_del_content_post);
             $_SESSION['success'] = "Alumni Account Successfully Deleted!";
             header('Location: alumni.php');
         }
@@ -851,7 +851,7 @@ if(isset($_POST['deleteBranch'])){
         $query_run_logs = mysqli_query($connection, $querylogs);
         if($query_run_logs)
         {
-            $_SESSION['success'] = "Your Data is Deleted";
+            $_SESSION['success'] = "<b> Branch </> is Successfully Deleted!";
             header('Location: branch.php');
         }
     }
@@ -941,7 +941,7 @@ if(isset($_POST['deleteDepartment'])){
         $query_run_logs = mysqli_query($connection, $querylogs);
         if($query_run_logs)
         {
-            $_SESSION['success'] = "Your Data is Deleted";
+            $_SESSION['success'] = "<b> Department </b> is Successfully Deleted!";
             header('Location: department.php');
         }
     }
@@ -1031,7 +1031,7 @@ if(isset($_POST['deleteCourse'])){
         $query_run_logs = mysqli_query($connection, $querylogs);
         if($query_run_logs)
         {
-            $_SESSION['success'] = "Your Data is Deleted";
+            $_SESSION['success'] = "<b> Course </b> is Successfully Deleted!";
             header('Location: course.php');
         }
     }
@@ -1283,7 +1283,7 @@ if(isset($_POST['deleteContent'])){
         $query_run_logs = mysqli_query($connection, $querylogs);
         if($query_run_logs)
         {
-            $_SESSION['success'] = "Your Data is Deleted";
+            $_SESSION['success'] = "<b> Content Post </b> is Successfully Deleted!";
             header('Location: announcement.php');
         }
     }
@@ -1356,7 +1356,7 @@ if(isset($_POST['deleteJob'])){
         $query_run_logs = mysqli_query($connection, $querylogs);
         if($query_run_logs)
         {
-            $_SESSION['success'] = "Your Data is Deleted";
+            $_SESSION['success'] = "<b> Content Post </b> is Successfully Deleted!";
             header('Location: jobPost.php');
         }
     }
