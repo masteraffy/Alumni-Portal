@@ -219,7 +219,7 @@ include "../dbconfig.php";
                                     data-type ="<?php echo $row['TypeOfContent'];?>"
                                     data-description ="<?php echo $row['Description'];?>"
                                     data-file = "<?php echo $row['Image']; ?>"
-                                    class="btn btn-success edit_btn"  data-toggle="modal" data-target="#updateadminprofile"> <i class="fas fa-edit"></i></button>
+                                    class="btn btn-primary edit_btn"  data-toggle="modal" data-target="#updateadminprofile"> <i class="fas fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#confirmModal" data-id="<?php echo $row['id']; ?>">
                                     <i class="far fa-trash-alt"></i>
                                     </button>

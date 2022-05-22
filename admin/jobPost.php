@@ -337,7 +337,7 @@ include "../dbconfig.php";
                                                 echo $row_dept['title'];
                                             }
                                         }?>"
-                                    class="btn btn-success edit_btn"  data-toggle="modal" data-target="#updateadminprofile"> 
+                                    class="btn btn-primary edit_btn"  data-toggle="modal" data-target="#updateadminprofile"> 
                                     
                                     <i class="fas fa-edit"></i>
                                 </button>

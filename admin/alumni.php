@@ -762,7 +762,7 @@ else{
                                                 $batch = mysqli_fetch_array($querybatch);
                                                 echo $batch['Description'];
                                                 ?>"
-                                                class="btn btn-success edit_btn" style="<?php echo "display:".$display ?>"  data-toggle="modal" data-target="#updateadminprofile"> 
+                                                class="btn btn-primary edit_btn" style="<?php echo "display:".$display ?>"  data-toggle="modal" data-target="#updateadminprofile"> 
                                                 <i class="fas fa-edit"></i>
                                             </button>
                                                 

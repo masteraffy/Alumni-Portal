@@ -356,7 +356,7 @@ include "../dbconfig.php";
                                         }
                                     }     
                                     ?>"
-                                    class="btn btn-success edit_btn"  data-toggle="modal" data-target="#updateadminprofile"> <i class="fas fa-edit"></i></button>
+                                    class="btn btn-primary edit_btn"  data-toggle="modal" data-target="#updateadminprofile"> <i class="fas fa-edit"></i></button>
                                     <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#confirmModal" data-id="<?php echo $row['Staff_ID']; ?>">
                                     <i class="far fa-trash-alt"></i>
                                     </button>
