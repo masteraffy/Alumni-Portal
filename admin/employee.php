@@ -286,7 +286,7 @@ include "../dbconfig.php";
             $query_run = mysqli_query($connection, $query);
         ?>
 
-        <table class="table table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
+        <table class="table table-hover table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
             <thead>
                 <tr>
                     <th>Employee Number</th>
