@@ -515,9 +515,10 @@ else{
                             <button type="button" class="btn btn-primary ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#addadminprofile">
                                 Add Alumni
                             </button>
+                            <!--
                             <button type="button" id="del" disabled="disabled" class="btn btn-danger ml-3" style="<?php echo "display:".$display ?>" data-toggle="modal" data-target="#deleteAll">
                             Multiple Delete
-                            </button>
+                            </button>-->
                     </div>
             </div>
 
@@ -585,12 +586,12 @@ else{
                         }
                         
                     ?>
-                <form action="code.php" method="POST">
+              <!--  <form action="code.php" method="POST"> -->
                     <table class="table table-hover table-bordered dataTableASC" id="dataTable" width="100%" cellspacing="0">
                         <thead>
                             <tr>
-                                <th><input type="checkbox" class="checkboxtop" onclick="select_all()" id="delete"></th>
-                                <th>Student Number</th>
+                               <!-- <th><input type="checkbox" class="checkboxtop" onclick="select_all()" id="delete"></th>  -->
+                                <th>Student Number</th> 
                                 <th>Full Name</th>
                                 <th>Course</th>
                                 <th>Branch Graduated</th>
@@ -607,9 +608,11 @@ else{
                                     {
                                         ?>
                                         <tr>
+                                            <!-- 
                                             <td>
-                                                <input type="checkbox" class="checkbox" id="<?php echo $row['studID']; ?>" name="checkbox[]" value ="<?php echo $row['studID']; ?>">
+                                               <input type="checkbox" class="checkbox" id="<?php// echo $row['studID']; ?>" name="checkbox[]" value ="<?php// echo $row['studID']; ?>"> 
                                             </td>
+                                            -->
                                             <td> 
                                                 <?php echo $row['studNo']; ?>                                 
                                             </td>
@@ -625,7 +628,7 @@ else{
                                             </td>
                                                 
                                             <td>
-                                            <!-- Modal -->
+                                            <!-- Modal --
                                             <div class="modal fade" id="deleteAll" tabindex="-1" role="dialog" aria-labelledby="deleteAllModalLabel" aria-hidden="true">
                                                     <div class="modal-dialog" role="document">
                                                         <div class="modal-content">
@@ -644,6 +647,7 @@ else{
                                                         </div>
                                                     </div>
                                                 </div>
+                                                -->
                                               <?php
                                                     $query = "SELECT * FROM batch WHERE Name=".$row['studID']." order by id desc
                                                     limit 1";
