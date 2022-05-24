@@ -198,16 +198,16 @@ INSERT INTO `departments` (`id`, `Name`, `Description`, `AddedDate`, `branch_id`
 
 CREATE TABLE `events` (
   `id` int(11) NOT NULL,
-  `Title` text NOT NULL,
-  `Subtitle` text NOT NULL,
-  `Description` text NOT NULL,
-  `Image` text NOT NULL,
-  `CreatedDate` text NOT NULL,
-  `CreatedUser` text NOT NULL,
-  `UserType` text NOT NULL,
-  `TypeOfContent` text NOT NULL,
-  `location` text NOT NULL,
-  `specialization` text NOT NULL,
+  `Title` varchar(50) NOT NULL,
+  `Subtitle` varchar(50) NOT NULL,
+  `Description` varchar(50) NOT NULL,
+  `Image` varchar(50) NOT NULL,
+  `CreatedDate` varchar(50) NOT NULL,
+  `CreatedUser` varchar(50) NOT NULL,
+  `UserType` varchar(50) NOT NULL,
+  `TypeOfContent` varchar(50) NOT NULL,
+  `location` varchar(50) NOT NULL,
+  `specialization` varchar(50) NOT NULL,
   `course` int(6) NOT NULL,
   `AllowPost` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
