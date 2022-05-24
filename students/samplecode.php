@@ -1,7 +1,6 @@
 <?php 
 include('security.php');
-
-
+include "../dbconfig.php";
 //for json
 $pursueStudy = $_POST['pursueStudy'];
 $training = $_POST['training'];

@@ -286,8 +286,6 @@ include "../dbconfig.php";
         <div class= "table-responsive">
 
         <?php
-            $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
-
             $query = "SELECT * FROM staff where userData = 'Administrator'";
             $query_run = mysqli_query($connection, $query);
             

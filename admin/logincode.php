@@ -1,7 +1,6 @@
 <?php
     include('security.php');
-
-    $connection = mysqli_connect("localhost","root","","its-alumnitracking");
+    include "../dbconfig.php";
 
     if(isset($_POST['login_btn']))
     {

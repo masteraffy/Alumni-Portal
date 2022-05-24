@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
+include "../dbconfig.php";
 if(isset($_POST['changepass']))
     {
         $id= $_POST['id'];

@@ -1,5 +1,6 @@
 <?php
   include('security.php');
+  include "../dbconfig.php";
   $email = $_SESSION['email'];
   $query = "SELECT * FROM students WHERE email  = '$email' ";
   $query_run = mysqli_query($connection, $query);

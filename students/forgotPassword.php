@@ -1,5 +1,6 @@
 <?php
     include('security.php');
+    include "../dbconfig.php";
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;

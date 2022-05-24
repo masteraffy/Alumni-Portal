@@ -1,5 +1,6 @@
 <?php
   include('security.php');
+  include "../dbconfig.php";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -173,7 +174,6 @@
                       <br>
                       <div class="col-md-12">
                                 <?php
-                                  $connection = mysqli_connect("localhost", "root", "", "adminpanel");
 
                                   $sql = "SELECT title, description, date, time, createdby FROM tblcontent";
                                   $result = mysqli_query($connection, $sql);

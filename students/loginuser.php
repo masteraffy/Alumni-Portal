@@ -1,5 +1,6 @@
 <?php
     include('security.php');
+    include "../dbconfig.php";
 
     
     if(isset($_POST['login_btn']))

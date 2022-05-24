@@ -1,6 +1,6 @@
 <?php
 session_start();
-$connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
+include "../dbconfig.php";
 if(isset($_POST['changepass']))
     {
         $id= $_POST['id'];
@@ -13,7 +13,7 @@ if(isset($_POST['changepass']))
             {
                 $_SESSION['success'] = "Successfully Updated";
 
-                echo '<script>window.location.replace("/alumni/students/sample.php");</script>';
+                echo '<script>window.location.replace("/alumniportal/students/sample.php");</script>';
             }
     }
 

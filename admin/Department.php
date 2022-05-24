@@ -150,8 +150,6 @@ include "../dbconfig.php";
         <div class= "table-responsive">
 
         <?php
-            $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
-
             $query = "SELECT * FROM departments";
             $query_run = mysqli_query($connection, $query);
         ?>

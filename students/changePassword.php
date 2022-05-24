@@ -1,6 +1,7 @@
 <?php 
 
 include('security.php');
+include "../dbconfig.php";
 $email = $_SESSION['email'];
 $query = "SELECT *, students.id as userID 
           From students 

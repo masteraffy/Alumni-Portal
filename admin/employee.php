@@ -274,8 +274,6 @@ include "../dbconfig.php";
         <div class= "table-responsive">
 
         <?php
-            $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
-
             $query = "SELECT *, staff.id as Staff_ID, branch.Name, branch.Address, departments.Name as Department_Name
             from staff 
             left join branch 

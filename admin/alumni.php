@@ -558,7 +558,6 @@ else{
                 <div class= "table-responsive">
 
                     <?php
-                        $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
                         
                         if($user['userData'] == "Employee"){
                             

@@ -175,8 +175,6 @@ include "../dbconfig.php";
         <div class= "table-responsive">
 
         <?php
-            $connection = mysqli_connect("localhost", "root", "", "its-alumnitracking");
-
             $query = "SELECT * FROM events left join staff on events.CreatedUser = staff.Id where TypeOfContent !='Jobs' AND AllowPost ='Approved' AND Usertype !='Alumni'";
             $query_run = mysqli_query($connection, $query);
         ?>
