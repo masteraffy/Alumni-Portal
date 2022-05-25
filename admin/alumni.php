@@ -103,7 +103,9 @@ else{
                     
                     <div class="form-group col-6">
                     <label>Batch</label>
-                            <input type="number" tabindex="10" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" required  name="yeargraduated"  placeholder="Enter year graduated" tabindex="10" required>
+                            <input type="number" tabindex="10" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" 
+                            onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" required  name="yeargraduated" 
+                             placeholder="Enter year graduated" tabindex="10" required>
                     </div>
 
                 </div>
@@ -305,7 +307,11 @@ else{
                     
                     <div class="form-group col-6">
                         <label>Batch</label>
-                            <input type="number" tabindex="10" onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;" onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control" required  name="yeargraduated"  placeholder="Enter year graduated" tabindex="10" required>
+                            <input type="number" tabindex="10"
+                             onKeyDown="if(this.value.length==4 && event.keyCode!=8) return false;"
+                              onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control"
+                               required  name="yeargraduated"  placeholder="Enter year graduated" tabindex="10"
+                               id="batch" required>
                     </div>
                     
                 </div>
@@ -370,8 +376,8 @@ else{
                 <div class="row">
                 <div class="form-group col-6 ">
                         <label>Student Number:</label>
-                        <input  tabindex="13" disabled name="studNo"
-                        onkeypress='return event.charCode >= 48 && event.charCode <= 57' class="form-control format-studNo" id="" required  placeholder="Ex: 18-00001">
+                        <input  tabindex="13"  name="studNo"
+                         class="form-control format-studNo" id="studentNo" required  placeholder="Ex: 18-00001">
                     </div>
                     <div class="form-group col-6 ">
                         <label>Status:</label>
@@ -746,6 +752,7 @@ else{
                                                 data-studDate="<?php echo $row['studDate']; ?>"
                                                 data-studRemarks="<?php echo $row['studRemarks']; ?>"
                                                 data-currentwork="<?php echo $row['CurrentWork']; ?>"
+                                                data-batch=<?php echo $batch['Description']; ?>
                                                 data-coursetitle="<?php
                                                 if($row['courseGraduated'] != "" || $row['courseGraduated'] != NULL  ){
                                                 $query = "SELECT * FROM course WHERE id=".$row['courseGraduated']."";
@@ -807,6 +814,8 @@ include('../includes/scripts.php');
             $("#email").val($(this).data("email"));
             $("#contact").val($(this).data("contact"));
             $("#address").html($(this).data("address"));
+            $("#studentNo").val($(this).data("studno"));
+            $("#batch").val($(this).data("batch"));
             
             // alert($("#course").val())
             var courseChecker = $("#course").val();
@@ -825,7 +834,7 @@ include('../includes/scripts.php');
             $("#confirmpassword").val($(this).data("pass"));
             $("#yeargraduated").val($(this).data("yeargraduated"));
         
-            $("#studNo").val($(this).data("studno"));
+            
             $("#studStatus").html($(this).data("studstatus"));
             $("#studDes").val($(this).data("studdes"));
             $("#studOR").val($(this).data("studor"));

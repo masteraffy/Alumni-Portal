@@ -1,7 +1,7 @@
 <?php
 session_start();
 include "../dbconfig.php";
-
+ob_start();
 use PHPMailer\PHPMailer\PHPMailer;
 use PHPMailer\PHPMailer\SMTP;
 use PHPMailer\PHPMailer\Exception;
@@ -779,8 +779,6 @@ if(isset($_POST['branchInsert'])){
     
     $Name=$_POST['Name'];
     $Address=$_POST['address'];
-
-    echo $Name."-".$Address;
     $query = "INSERT INTO branch(Id, Name, Address, AddedDate) 
         VALUES(
             null,
@@ -797,14 +795,14 @@ if(isset($_POST['branchInsert'])){
             $query_run_logs = mysqli_query($connection, $querylogs);
             if($query_run_logs)
             {
-                $_SESSION['success'] = "Successfully Created";
-                header('Location: branch.php');
+                $_SESSION['success'] = "<b> Branch </b> Successfully Created";
+                header('Location: Branch.php');
             }
         }
         else
         {
             $_SESSION['status'] = "Error on creation";
-            header('Location: branch.php');
+            header('Location: Branch.php');
         }
 }
 if(isset($_POST['branchUpdate'])){
@@ -828,13 +826,13 @@ if(isset($_POST['branchUpdate'])){
             if($query_run_logs)
             {
                 $_SESSION['success'] = "Successfully Updated";
-                header('Location: branch.php');
+                header('Location: Branch.php');
             }
         }
         else
         {
             $_SESSION['status'] = "Error on updating data";
-            header('Location: branch.php');
+            header('Location: Branch.php');
         }
 }
 if(isset($_POST['deleteBranch'])){
@@ -851,14 +849,14 @@ if(isset($_POST['deleteBranch'])){
         $query_run_logs = mysqli_query($connection, $querylogs);
         if($query_run_logs)
         {
-            $_SESSION['success'] = "<b> Branch </> is Successfully Deleted!";
-            header('Location: branch.php');
+            $_SESSION['success'] = "<b> Branch </b> is Successfully Deleted!";
+            header('Location: Branch.php');
         }
     }
     else
     {
         $_SESSION['status'] = "Your Data is NOT Deleted";
-        header('Location: branch.php');
+        header('Location: Branch.php');
     }
 }
 
@@ -887,13 +885,13 @@ if(isset($_POST['departmentInsert'])){
             if($query_run_logs)
             {
                 $_SESSION['success'] = "Successfully Created";
-                header('Location: department.php');
+                header('Location: Department.php');
             }
         }
         else
         {
             $_SESSION['status'] = "Error on creation";
-            header('Location: department.php');
+            header('Location: Department.php');
         }
 }
 
@@ -919,13 +917,13 @@ if(isset($_POST['departmentUpdate'])){
             if($query_run_logs)
             {
                 $_SESSION['success'] = "Successfully Updated";
-                header('Location: department.php');
+                header('Location: Department.php');
             }
         }
         else
         {
             $_SESSION['status'] = "Error on updating data";
-            header('Location: department.php');
+            header('Location: Department.php');
         }
 }
 if(isset($_POST['deleteDepartment'])){
@@ -942,13 +940,13 @@ if(isset($_POST['deleteDepartment'])){
         if($query_run_logs)
         {
             $_SESSION['success'] = "<b> Department </b> is Successfully Deleted!";
-            header('Location: department.php');
+            header('Location: Department.php');
         }
     }
     else
     {
         $_SESSION['status'] = "Your Data is NOT Deleted";
-        header('Location: department.php');
+        header('Location: Department.php');
     }
 }
 
@@ -976,13 +974,13 @@ if(isset($_POST['courseInsert'])){
             if($query_run_logs)
             {
                 $_SESSION['success'] = "Successfully Created";
-                header('Location: course.php');
+                header('Location: Course.php');
             }
         }
         else
         {
             $_SESSION['status'] = "Error on creation";
-            header('Location: course.php');
+            header('Location: Course.php');
         }
 }
 
@@ -1009,13 +1007,13 @@ if(isset($_POST['courseUpdate'])){
             if($query_run_logs)
             {
                 $_SESSION['success'] = "Successfully Updated";
-                header('Location: course.php');
+                header('Location: Course.php');
             }
         }
         else
         {
             $_SESSION['status'] = "Error on updating data";
-            header('Location: course.php');
+            header('Location: Course.php');
         }
 }
 if(isset($_POST['deleteCourse'])){
