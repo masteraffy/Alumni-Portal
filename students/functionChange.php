@@ -13,7 +13,7 @@ if(isset($_POST['changepass']))
             {
                 $_SESSION['success'] = "Successfully Updated";
 
-                echo '<script>window.location.replace("/alumniportal/students/sample.php");</script>';
+                echo '<script>window.location.replace("/alumni/students/sample.php");</script>';
             }
     }
 

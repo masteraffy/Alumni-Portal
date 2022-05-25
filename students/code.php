@@ -79,18 +79,9 @@ if(isset($_POST['postContent'])){
             $query_run = mysqli_query($connection, $query);
             if($query_run)
             {
-                $newId = trim($user, "_student");
-                $update = "UPDATE `students` SET `guid` = '$user' WHERE `students`.`id` = $newId;
-                ";
-                
-                $updateq = mysqli_query($connection, $update);
-                if($updateq)
-                {
-
-                    $_SESSION['notification'] = "Successfully Created";
+                $_SESSION['notification'] = "Successfully Created";
                     echo $update;
                     header('Location: home.php');
-                }
             }
             else
             {

@@ -1032,13 +1032,13 @@ if(isset($_POST['deleteCourse'])){
         if($query_run_logs)
         {
             $_SESSION['success'] = "<b> Course </b> is Successfully Deleted!";
-            header('Location: course.php');
+            header('Location: Course.php');
         }
     }
     else
     {
         $_SESSION['status'] = "Your Data is NOT Deleted";
-        header('Location: course.php');
+        header('Location: Course.php');
     }
 }
 

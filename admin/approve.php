@@ -82,10 +82,10 @@
                                         
                                         <td>
                                             
-                                            <button type="button" class="btn btn-success check " data-toggle="modal" data-target="#approvemodal" data-id="<?php echo $row['id']; ?>"> 
+                                            <button type="button" class="btn btn-success check " data-toggle="modal" data-target="#approvemodal" data-id="<?php echo $row['Event_ID']; ?>"> 
                                             <i class="fas fa-check"></i>
                                             </button>
-                                            <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#deletemodal" data-id="<?php echo $row['id']; ?>"> 
+                                            <button type="button" class="btn btn-danger delete" data-toggle="modal" data-target="#deletemodal" data-id="<?php echo $row['Event_ID']; ?>"> 
                                             <i class="fas fa-ban"></i>
                                             </button>
                                             <!-- Modal -->
