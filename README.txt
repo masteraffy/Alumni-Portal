@@ -1,8 +1,14 @@
-ADMIN: arellano.alumniasd@gmail.com / 123456
+Admin Account
+Username: masteraffy
+Password: 000000
 
-URL
-Admin:http://localhost/alumni/admin/loginAdmin.php
-Students:http://localhost/alumni/students/login.php
+Link - Online
+Admin:https://au-alumniportal.000webhostapp.com/alumni/admin
+Students:https://au-alumniportal.000webhostapp.com/alumni/students/login.php
 
-Please follow the step.
-Delete all the existing tables and import again the latest DB.
+Localhost - 
+Admin: http://localhost/alumni/admin
+Students: http://localhost/alumni/students/login.php
+
+Github Repo: https://github.com/masteraffy/alumniportal.git
+
