@@ -1,0 +1,11 @@
+alumni_id,student_number,first_name,middle_name,last_name,email,campus,branchaddress,course,batch,Phone,address,studDate,studStatus,studDes,studOR
+22-0001,22-00001,Samuel,Mendoza,Espiritu,recamino12@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9518625901,Quezon City,3/16/2019,single,none,213456
+22-0002,22-00002,William,Ford,Nwabia,williamford@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9860293029,Manila,03/07/2019,single,none,213459
+22-0003,22-00003,Christian,Jose,Codiila,tianmendoza@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9719421740,Manila,3/25/2019,single,none,213486
+22-0004,22-00004,Mark anthony,Manzano,Medina,macanthony21@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9857273313,Manila,03/04/2019,single,none,213468
+22-0005,22-00005,Jade,Escarilla,dominguez,Jadedominguez044@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9197678125,Cavite,3/14/2019,married,none,213511
+22-0006,22-00006,christiane nicole,Jose,Codiila,nicscodilla31@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9310549931,Mandaluyong City,4/25/2019,married,none,213527
+22-0007,22-00007,allyssa mikaella,domamtay,posadas,ellaposadas@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9770359858,Pasig City,4/25/2019,single,none,213576
+22-0008,22-00008,michelle,estopin,domingo,chelledomingo16@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9067203597,Quezon City,5/17/2019,married,none,213856
+22-0009,22-00009,james riel,misoles,peralta,jamesperalta11@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9626672984,Mandaluyong City,5/21/2019,married,none,213846
+22-0010,22-00010,carla,dimangunahan,ramos,carlaramos18@gmail.com,Juan Sumulong Campus,Legarda,Bachelor of Science in Computer Science,2022,9438214368,San Juan City,5/27/2019,married,none,213479
